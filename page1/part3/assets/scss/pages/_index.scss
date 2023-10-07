@@ -1,0 +1,640 @@
+
+
+// header
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  opacity: 0.8;
+  height: 110px;
+
+  #logo {
+    width: 134.3px;
+    height: 65px;
+    margin-left: 60px;
+    transition: all 0.3 ease-in;
+
+    // 螢幕尺寸576
+    @include minipad {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      transform: scale(1.5, 1.5);
+      opacity: 0.5;
+    }
+  }
+
+  > nav {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 60px;
+
+    // 螢幕尺寸576
+    @include minipad {
+      width: 60%;
+      margin-right: 10px;
+    }
+
+  > div {
+      letter-spacing: 3px;
+      line-height: 92px;
+      padding-bottom: 9px;
+
+      .nav-item {
+        color: inherit;
+      
+        &:hover {
+          cursor: pointer;
+          color: powderblue;
+        }
+      }
+
+    }
+
+    .search-part {
+      margin-top: 7px;
+
+      #Search {
+        width: 18px;
+        transition: all 0.6s;
+
+        &:hover {
+          transform: scale(1.5, 1.5);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+//  search-section
+.search-section {
+  position: fixed;
+  top: 105px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  width: 100vw;
+  height: 100vh;
+  z-index: 3;
+  display: none;
+
+  // white-background
+  .white-background {
+    width: 100vw;
+    height: 53vh;
+    padding: 30px 0;
+    background-color: rgb(243, 243, 243);
+
+    > p {
+      color: #1ad8d3;
+      font-size: 18px;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    > form {
+      width: 65%;
+      margin: 0 auto;
+      padding: 20px 15px;
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      border-radius: 20px;
+      background-color: #fff;
+
+      // 螢幕尺寸768px
+      @include pad {
+        width: 90%;
+      }
+
+
+      > input {
+        width: 90%;
+        margin-left: 1px;
+        border-style: none;
+        padding: 10px;
+
+        &:focus {
+          padding: 10px;
+        }
+      }
+
+      > img {
+        width: 25px;
+        height: 28px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  // black-ground
+  .black-ground {
+    width: 100vw;
+    height: 35vh;
+    background-color: #000;
+    opacity: 0.8;
+  }
+
+}
+
+//  search-section toggle diplay none
+.d-block {
+  display: block;
+}
+
+
+// section
+section {
+  background-image: url(https://frankyeah.github.io/Front-Enter/images/key-visual.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 580px;
+  line-height: 10px;
+  padding: 10px;
+  margin-top: 6px;
+
+  .main-title {
+    letter-spacing: 5px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+
+    .title-one {
+      font-size: 40px;
+      font-weight: bold;
+
+      // 螢幕尺寸390
+      @include mobile {
+        font-size: 32px;
+      }
+    }
+    
+    .title-two {
+      font-size: 28px;
+      letter-spacing: 10px;
+
+      // 螢幕尺寸390
+      @include mobile {
+        font-size: 22px;
+      }
+    }
+    
+    
+    #arrow-bottom {
+      background-image: url(https://frankyeah.github.io/Front-Enter/images/next.svg);
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+      margin: 50px auto;
+      position: absolute;
+      top: 550px;
+      left: 50%;
+      transform: rotate(90deg);
+      animation: UpDownChange 1s ease 0s infinite alternate;
+    }
+  }
+}
+
+
+// aside
+#my-aside {
+  z-index: 1;
+  opacity: 0.8;
+  position: fixed;
+  right: 0;
+  bottom: 20%;
+  width: 78px;
+  height: 69px;
+  cursor: pointer;
+  transition: bottom 4s;
+
+  &:hover {
+    bottom: 20px;
+  }
+
+  #my-aside-img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// main
+main {
+  > .learn-test {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 150px 0;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+      background-image: url(https://frankyeah.github.io/Front-Enter/images/second-img.jpg);
+      background-color: rgba(128, 128, 128, 0.8);
+      background-blend-mode: multiply;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: bottom;
+      background-attachment: fixed;
+      transition: all 0.6s linear;
+
+      // 螢幕尺寸768px
+      @include pad {
+        filter: brightness(100%)
+      }
+
+      &:hover {
+        padding: 200px 0 ;
+      }
+
+      > p {
+        font-size: 18px;
+        color: white;
+        line-height: 3px;
+        letter-spacing: 3px;
+      }
+
+      #test-go {
+        width: 128px;
+        padding: 7px 23px;
+        margin-top: 30px;
+        color: $primary-blue;
+        line-height: 18px;
+        text-align: center;
+        letter-spacing: 0px;
+        cursor: pointer;
+        border-radius: 5px;
+        border: 1px solid $primary-blue;
+        transition: transform 0.6s linear;
+
+        &:hover {
+          transform: scale(1.2, 1.2);
+        }
+      }
+  }
+
+  > .classroom-choose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 0;
+    margin-bottom: 10px;
+    background-image: url(https://frankyeah.github.io/Front-Enter/images/third-img.jpg);
+    background-color: rgba(128, 128, 128, 0.8);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-attachment: fixed;
+    transition: all 0.6s linear;
+
+    // 螢幕尺寸768px
+    @include pad {
+      filter: brightness(100%)
+    }
+
+    &:hover {
+      padding: 130px 0;
+    }
+
+    > p {
+      font-size: 18px;
+      color: white;
+    }
+
+    .classroom-word {
+      width: 205px;
+      text-align: center;
+      font-size: 18px;
+      color: $primary-blue;
+      border-radius: 5px;
+      border: $primary-border;
+      letter-spacing: 0px;
+      padding: 7px 23px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: transform 0.6s linear;
+
+      &:hover {
+          transform: scale(1.2, 1.2);
+      }
+    }
+  }
+ 
+  > div.third-pic {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 240px 0;
+    margin-bottom: 10px;
+    background-image: url(https://frankyeah.github.io/Front-Enter/images/15.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: bottom;
+    transition: all 0.6s linear;
+
+    // 螢幕尺寸576
+    @include minipad {
+      flex-direction: column;
+    }
+
+    &:hover {
+      padding: 250px 0;
+    }
+
+    .inside-pic {
+      width: 336px;
+      height: 445px;
+      margin-right: 10px;
+      margin-left: 10px;
+      text-align: center;
+      background-image: url(https://frankyeah.github.io/Front-Enter/images/FE_white.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: center;
+
+      // 螢幕尺寸768px
+      @include pad {
+        width: 224px;
+        height: 336px;
+      }
+
+      .pen {
+        width: 41px;
+        height: 42.5px;
+        margin-top: 45px;
+      }
+
+      .inside-title {
+        color: $primary-blue;
+        font-size: 24px;
+
+        // 螢幕尺寸768px
+        @include pad {
+          font-size: 18px;
+        }
+      }
+
+      .inside-line {
+        border-top: 2px solid rgb(26, 216, 211);
+        width: 15%;
+        margin: auto;
+      }
+      
+      .inside-p {
+        line-height: 30px;
+        margin-top: 35px;
+
+        // 螢幕尺寸768px
+        @include pad {
+          margin-top: 20px;
+          font-size: 16px;
+          line-height: 25px;
+        }
+      }
+      
+      .inside-button {
+        cursor: pointer;
+        border-radius: 5px;
+        border-style: none;
+        background-color: $primary-blue;
+        font-size: 18px;
+        padding: 7px 30px;
+        margin-top: 20px;
+
+        // 螢幕尺寸768px
+        @include pad {
+          font-size: 16px;
+           margin-top: 0px;
+        }
+
+        a {
+          color: white;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+
+  > div.forth-pic {
+    width: 100%;
+    padding: 200px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background-image: url(https://frankyeah.github.io/Front-Enter/images/five-img.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(128, 128, 128, 0.8);
+    background-blend-mode: multiply;
+    background-position-x: center;
+    background-position-y: bottom;
+    transition: all 0.6s linear;
+
+    &:hover {
+      padding: 220px 0;
+    }
+
+    .forth-insdie {
+      height: 50%;
+
+      // 螢幕尺寸390
+      @include mobile {
+        max-width: 300px;
+      }
+
+      p {
+        max-width: 482px;
+        margin-left: 38px;
+        color: white;
+        line-height: 35px;
+        text-align: left;
+        font-size: 18px;
+        @include minipad {
+          line-height: 35px;
+          margin-left: 0px;
+          padding: 0 21px;
+          font-size: 16px;
+          text-align: justify;
+          word-break: normal;
+        }
+
+        // 螢幕尺寸390
+        @include mobile {
+          font-size: 14px;
+          letter-spacing: 0px;
+          line-height: 24px;
+        }
+      }
+
+      .forth-title {
+        margin: 0 auto;
+        margin-bottom: 3px;
+        font-size: 24px;
+        font-weight: 600;
+        text-align: center;
+
+        // 螢幕尺寸576
+        @include minipad {
+          font-size: 22px;
+        }
+      }
+
+      .forth-line {
+        width: 10%;
+        margin: 0 auto;
+        border-top: 1px solid white;
+      }
+
+      .forth-description {
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+
+//動畫區塊 
+//Top
+.top {
+  padding: 70px;
+
+  .top-div {
+    width: 41px;
+    height: 56px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.6s linear;
+
+    &:hover {
+      transform: scale(1.2, 1.2);
+    }
+
+    .top-icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+/* Footer */
+footer {
+  background-color: $gray-color;
+  width: 100%;
+  height: 100px;
+  opacity: 0.8;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
+  // 螢幕尺寸1022px
+  @include pc {
+    height: auto;
+  }
+
+  // 螢幕尺寸768px
+  @include pad {
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+
+  // 螢幕尺寸390
+  @include mobile {
+    margin-right: 0px;
+  }
+
+  p {
+    font-size: 13px;
+    line-height: 60px;
+    padding: 0 30px;
+
+    // 螢幕尺寸768px
+    @include pad {
+      width: 100%;
+      height: 10px;
+    }
+
+    // 螢幕尺寸390
+    @include mobile {
+      font-size: 10.5px;
+    }
+
+    a {
+      color: #3f3a3a;
+    }
+  }
+
+  .m-word::before {
+    content: "M";
+    word-spacing: 20px;
+    color: $primary-blue;
+  }
+  
+  .e-word::before {
+    content: "E";
+    color: $primary-blue;
+  }
+
+  div {
+    padding: 0 30px;
+    text-align: center;
+    line-height: 80px;
+
+    // 螢幕尺寸768px
+    @include pad {
+      width: 100%;
+      line-height: 10px;
+      text-align: right;
+    }
+
+    .footer-icon {
+      width: 30px;
+      height: 30px;
+      vertical-align: middle;
+
+      // 螢幕尺寸768px
+      @include pad {
+        margin-top: -10px;
+      }
+
+      // 螢幕尺寸390
+      @include mobile {
+        width: 20px;
+        height: 20px;
+        margin-top: 0;
+      }
+    }
+  }
+}
+

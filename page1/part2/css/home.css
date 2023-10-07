@@ -30,7 +30,7 @@ header {
     left: 0;
     background-color: white;
     opacity: 0.8;
-    height: 100px;
+    height: 110px;
 
 }
 
@@ -86,6 +86,81 @@ header>nav>div {
     cursor: pointer;
 }
 
+/* search-section */
+.search-section {
+    position: fixed;
+    top: 105px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    display: none;
+
+}
+
+
+/* white-background */
+.white-background {
+    width: 100vw;
+    height: 53vh;
+    padding: 30px 0;
+    background-color: rgb(243, 243, 243);
+}
+
+
+.white-background > p {
+    color: #1ad8d3;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.white-background>form {
+    width: 65%;
+    margin: 0 auto;
+    padding: 20px 15px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+.white-background>form>input {
+    width: 90%;
+    margin-left: 1px;
+    border-style: none;
+    padding: 10px;
+}
+
+.white-background>form>input:focus {
+    padding: 10px;
+}
+
+.white-background>form>img {
+    width: 25px;
+    height: 28px;
+}
+
+.black-ground {
+    width: 100vw;
+    height: 35vh;
+    background-color: #000;
+    opacity: 0.8;
+}
+
+
+/* search-section toggle diplay none */
+.d-block {
+    display: block;
+}
+
+
+
+/* section */
 section {
     background-image: url(https://frankyeah.github.io/Front-Enter/images/key-visual.jpg);
     background-repeat: no-repeat;
@@ -98,6 +173,7 @@ section {
     height: 580px;
     line-height: 10px;
     padding: 10px;
+    margin-top: 6px;
 }
 
 .main-title {
@@ -493,6 +569,12 @@ footer>div {
     .inside-button {
         font-size: 16px;
         margin-top: 0px;
+    }
+
+
+    /* search > form */
+    .white-background>form {
+        width: 95%;
     }
 
     /* footer */
