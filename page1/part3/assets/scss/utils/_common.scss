@@ -1,6 +1,6 @@
 /* loading 動畫 */
 div.loading-drawing {
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   top: 0;
   left: 0;
@@ -12,7 +12,7 @@ div.loading-drawing {
 }
 
 div.loading-animation {
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   top: 0;
   left: 0;
