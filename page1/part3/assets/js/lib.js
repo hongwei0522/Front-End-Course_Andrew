@@ -29,3 +29,8 @@ app.loading = function () {
     app.get('#loadingAnimation').style.display = 'none';
   }, 600)
 }
+
+// loading display none
+setTimeout(() => {
+  app.loading()
+}, 1000)
