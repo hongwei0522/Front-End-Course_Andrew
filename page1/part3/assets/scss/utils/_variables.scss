@@ -12,6 +12,14 @@ $primary-border: 1px solid rgb(26, 216, 211);
 
 
 // mixin
+
+// content & enlarge pc 1200
+@mixin maxPc {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
 // pc
 @mixin pc {
   @media(max-width: 1022px) {

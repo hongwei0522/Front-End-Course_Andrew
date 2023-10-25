@@ -18,6 +18,7 @@ let dataArray = Object.values(data.article)
 
 let articles = dataArray.map(item => {
   return {
+    classId: item.creatTime,
     classType: item.classType,
     teacWay: item.teachWay,
     classCity: item.city,
@@ -27,7 +28,7 @@ let articles = dataArray.map(item => {
   }
 })
 
-// console.log(articles);
+console.log(articles);
 
 const allItem = document.querySelector('#allClass')
 const smallItem = document.querySelector('#smallClass')
@@ -43,7 +44,7 @@ function allClassItem() {
   articles.forEach(article => {
     allhtml += `
       <li class="card">
-          <a href="./class-one.html" class="class-item">
+          <a href="./content.html?id=${article.classId}" class="class-item">
             <div class="city-part m-auto m-1">
               <div class="location-box">
                 <img src="../assets/images/location_icon.png" alt="" class="loction-icon">
@@ -92,7 +93,6 @@ function changeClickColor(allColor, smallColor, freeColor, oneColor) {
   // 點擊全部之函式
   function allClass() {
     const cardContainer = document.querySelector('.card-container')
-    const allItem = document.querySelector('#allClass')
 
     // 點擊『全部』選項後，改變文字顏色
     changeClickColor(
@@ -107,7 +107,7 @@ function changeClickColor(allColor, smallColor, freeColor, oneColor) {
     articles.forEach(article => {
       htmlContent += `
       <li class="card">
-          <a href="./class-one.html" class="class-item">
+          <a href="./content.html?id=${article.classId}"class="class-item">
             <div class="city-part m-auto m-1">
               <div class="location-box">
                 <img src="../assets/images/location_icon.png" alt="" class="loction-icon">
@@ -165,7 +165,7 @@ function smallClass() {
     if (article.classType === "小班制" ) {
       htmlContent += `
       <li class="card">
-          <a href="./class-one.html" class="class-item">
+          <a href="./content.html?id=${article.classId}" class="class-item">
             <div class="city-part m-auto m-1">
               <div class="location-box">
                 <img src="../assets/images/location_icon.png" alt="" class="loction-icon">
@@ -217,7 +217,7 @@ function freeRangeClass() {
     if (article.teacWay === "放養制") {
       htmlContent += `
       <li class="card">
-          <a href="./class-one.html" class="class-item">
+          <a href="./content.html?id=${article.classId}" class="class-item">
             <div class="city-part m-auto m-1">
               <div class="location-box">
                 <img src="../assets/images/location_icon.png" alt="" class="loction-icon">
@@ -269,7 +269,7 @@ function oneClass() {
     if (article.classType === "一對一") {
       htmlContent += `
       <li class="card">
-          <a href="./class-one.html" class="class-item">
+          <a href="./content.html?id=${article.classId}"class="class-item">
             <div class="city-part m-auto m-1">
               <div class="location-box">
                 <img src="../assets/images/location_icon.png" alt="" class="loction-icon">
