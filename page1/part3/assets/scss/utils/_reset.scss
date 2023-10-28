@@ -1,4 +1,6 @@
 
+
+// 共同樣式
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
@@ -18,6 +20,41 @@ body {
   padding-top: 105px;
 }
 
+ul,
+li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.container {
+ max-width: 85%;
+ margin: 0 auto; 
+}
+
+.content-container {
+  max-width:90%;
+  margin: 0 auto;
+}
+
 a {
   text-decoration: none;
+  cursor: pointer;
+}
+
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.m-1 {
+  margin-bottom: 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.d-none {
+  display: none;
 }

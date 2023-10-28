@@ -12,7 +12,8 @@ header {
   left: 0;
   background-color: white;
   opacity: 0.8;
-  height: 110px;
+  height: 105px;
+  z-index: 2;
 
   #logo {
     width: 134.3px;
@@ -157,7 +158,7 @@ header {
 
 
 // section
-section {
+.front-secton {
   background-image: url(https://frankyeah.github.io/Front-Enter/images/key-visual.jpg);
   background-repeat: no-repeat;
   background-position: center;
