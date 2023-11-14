@@ -466,6 +466,12 @@ main {
 
     .forth-insdie {
       height: 50%;
+      max-width: 685px;
+
+      // 螢幕尺寸768
+      @include pad {
+        max-width: 86%;
+      }
 
       // 螢幕尺寸390
       @include mobile {
@@ -473,19 +479,17 @@ main {
       }
 
       p {
-        max-width: 482px;
-        margin-left: 38px;
         color: white;
         line-height: 35px;
         text-align: left;
         font-size: 18px;
+        text-align: justify;
+
         @include minipad {
           line-height: 35px;
           margin-left: 0px;
           padding: 0 21px;
           font-size: 16px;
-          text-align: justify;
-          word-break: normal;
         }
 
         // 螢幕尺寸390
