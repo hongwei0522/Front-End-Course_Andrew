@@ -1,0 +1,49 @@
+
+// variable
+// color
+$primary-blue: rgb(26, 216, 211);
+$second-gray: rgb(128, 128, 128);
+$gray-color: #ececec;
+
+
+
+// border
+$primary-border: 1px solid rgb(26, 216, 211);
+
+
+// mixin
+
+// content & enlarge pc 1200
+@mixin maxPc {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+// pc
+@mixin pc {
+  @media(max-width: 1022px) {
+    @content;
+  }
+}
+
+// pad
+@mixin pad {
+  @media(max-width: 768px) {
+    @content;
+  }
+}
+
+// mini pad 
+@mixin minipad {
+  @media(max-width: 576px) {
+    @content;
+  }
+}
+
+// mobile 
+@mixin mobile {
+  @media(max-width:390px) {
+    @content;
+  }
+}

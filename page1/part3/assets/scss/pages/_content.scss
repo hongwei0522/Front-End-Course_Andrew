@@ -1,0 +1,293 @@
+
+.content-wrapper {
+  padding: 100px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .img-section {
+    padding-top: 22px;
+
+    .left-box-one,
+    .left-box {
+      width: 400px;
+      height: 266px;
+      margin-bottom: 40px;
+      cursor: pointer;
+      transition: all .6s ease-out;
+
+      &:hover {
+        transform: scale(1.05);
+        margin-bottom: 55px;
+      }
+
+      &:not(:hover) {
+        transform: scale(1) ;margin-bottom: 40px ;
+        position: relative;
+      } 
+
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .text-section {
+    width: 62%;
+    margin-left: 35px;
+
+    .text-topic {
+      font-size: 20px;
+      font-weight: bold;
+      color: $primary-blue;
+      letter-spacing: 3px;
+    }
+
+    .text-description {
+      font-size: 16px;
+      color: $second-gray;
+      line-height: 28px;
+      text-align: justify;
+      letter-spacing: 3px;
+    }
+  }
+
+  .text-content {
+    .text-content-container {
+      width: 400px;
+      margin: 0 auto;
+      padding-top: 100px;
+      text-align: center;
+
+      .content-word {
+        position: relative;
+        font-size: 18px;
+        color: $primary-blue;
+        padding-top: 35px;
+
+        &::before {
+          position: absolute;
+          content: "";
+          width: 38px;
+          height: 2px;
+          bottom: -7px;
+          background-color: $primary-blue;
+        }
+      }
+
+      .row-group {
+        .row {
+          display: flex;
+          justify-content: flex-start;
+          margin-top: 39px;
+          padding: 23px px 0;
+          border-bottom: 1px solid rgba(197, 197, 197, 0.8);
+
+          .row-name {
+            width: 100px;
+            font-size: 16px;
+            font-weight: bold;
+            color: $primary-blue;
+            text-align: start;
+            letter-spacing: 3px;
+          }
+
+          .row-value {
+            font-size: 16px;
+            color: $second-gray;
+            letter-spacing: 3px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.enlarge-wrapper { 
+  .enlargeBackground {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+  
+  
+    .enlarge-container {
+      width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      .large-left {
+        width: 0;
+        height: 0;
+        border: 25px solid;
+        cursor: pointer;
+        border-color: transparent $second-gray transparent transparent;
+        }
+  
+      .largr-img {
+        width: 750px;
+        height: 550px;
+        margin: 0 15px;
+      }
+  
+      .large-right {
+        width: 0;
+        height: 0;
+        border: 25px solid;
+        cursor: pointer;
+        border-color: transparent transparent transparent $second-gray;
+      }
+    }
+  }
+}
+
+// 螢幕尺寸1200px
+@include maxPc {
+    .enlarge-wrapper {
+      .enlargeBackground {
+        .enlarge-container {
+          width: 550px;
+
+          .largr-img {
+            width: 400px;
+            height: 400px;
+          }
+        }
+      }
+    }
+}
+
+// 螢幕尺寸1022px 
+@include maxPc {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+
+    .img-section {
+      margin: 0 auto;
+
+      .left-box {
+        display: none;
+      }
+
+    }
+
+    .text-section {
+      width: 90%;
+      margin: 0 auto;
+
+      .text-title {
+        text-align: start;
+      }
+    }
+  }
+}
+
+
+// 螢幕尺寸768px
+@include pad {
+  .enlarge-wrapper {
+    .enlargeBackground {
+      .enlarge-container {
+        width: 445px;
+  
+        .largr-img {
+          width: 300px;
+          height: 300px;
+        }
+      }
+    }
+  }
+}
+
+
+// 螢幕尺寸576px
+@include minipad {
+  .content-wrapper {
+    .img-section {
+      .left-box-one {
+        height: 240px;
+        width: 340px;
+      }
+    }
+
+    .text-section {
+      .text-content {
+        .text-content-container {
+          width: 90%;
+    
+          .row-group {
+    
+            .row {
+              .row-name {
+                width: 65px;
+                font-size: 12px;
+              }
+    
+              .row-value {
+                font-size: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .enlarge-wrapper {
+    .enlargeBackground {
+      .enlarge-container {
+        width: 375px;
+  
+        .largr-img {
+          width: 220px;
+          height: 340px;
+        }
+      }
+    }
+  }
+}
+
+
+// 螢幕尺寸390px
+@include mobile {
+  .content-wrapper {
+    .img-section {
+      .left-box-one {
+        height: 200px;
+        width: 300px;
+      }
+    }
+
+    .text-section {
+      .text-content {
+        .text-content-container {      
+          .row-group {
+            .row {
+              .row-name {
+                font-size: 10px;
+              }
+        
+              .row-value {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
