@@ -1330,4 +1330,63 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   .content-wrapper .text-section .text-content .text-content-container .row-group .row .row-value {
     font-size: 10px;
   }
+}
+main .skill-one-wrapper {
+  background-image: url("	https://frankyeah.github.io/Front-Enter/images/skill-tree-key.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 100vw;
+  padding: 200px 0;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main .skill-one-wrapper .skill-one-title {
+  font-size: 24px;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.7);
+  padding: 6px 13px;
+  border-radius: 5px;
+  letter-spacing: 10px;
+  text-align: center;
+}
+main .skill-two-wrapper {
+  background-image: url("https://frankyeah.github.io/Front-Enter/images/second-img.jpg");
+  background-color: rgba(128, 128, 128, 0.8);
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: bottom;
+  background-size: cover;
+  padding: 235px 0;
+}
+main .skill-two-wrapper .skill-container {
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  letter-spacing: 3px;
+}
+main .skill-two-wrapper .skill-container .skill-two-title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+main .skill-two-wrapper .skill-container .skill-line {
+  width: 20px;
+  margin: 0 auto;
+  border: 1px solid #fff;
+}
+main .skill-two-wrapper .skill-container .skill-two-description {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 30px;
 }/*# sourceMappingURL=all.css.map */
