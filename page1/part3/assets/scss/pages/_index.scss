@@ -19,16 +19,16 @@ header {
     width: 134.3px;
     height: 65px;
     margin-left: 60px;
-    transition: all 0.3 ease-in;
+    transition: all 0.6s ease-in;
+    
+    &:hover {
+      transform: scale(1.2, 1.2);
+      opacity: 0.5;
+    }
 
     // 螢幕尺寸576
     @include minipad {
       margin-left: 10px;
-    }
-
-    &:hover {
-      transform: scale(1.5, 1.5);
-      opacity: 0.5;
     }
   }
 
