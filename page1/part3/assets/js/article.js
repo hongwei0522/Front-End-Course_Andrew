@@ -36,6 +36,31 @@ const freeItem = document.querySelector('#freeRange')
 const oneItem = document.querySelector('#oneOnOne')
 
 
+// 輪播圖 function
+// 宣告當前播放照片位置
+let slideIndex = 1;
+
+// 下一張/上一張圖片
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+// 秀出該出現的輪播圖
+function showSlides(n) {
+  const slides = document.querySelectorAll(".mySlides");
+
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+
+  slides.forEach((slide) => (slide.style.display = "none"));
+  slides[slideIndex - 1].style.display = "block";
+}
+
+
 // 點進discover頁面後，渲染九張課程卡片
 function allClassItem() {
   const cardContainer = document.querySelector('.card-container')
@@ -87,9 +112,6 @@ function changeClickColor(allColor, smallColor, freeColor, oneColor) {
 
 
 
-// all.addEventListener('click', function() {
-
-
   // 點擊全部之函式
   function allClass() {
     const cardContainer = document.querySelector('.card-container')
@@ -136,15 +158,8 @@ function changeClickColor(allColor, smallColor, freeColor, oneColor) {
     `
     })
 
-    // return allhtml
-    // console.log(allhtml)
     cardContainer.innerHTML = htmlContent
   }
-
-  // cardContainer.innerHTML = allClass()
-  // const cardContainer = document.querySelector('.card-container')
-  // const all = document.querySelector('#allClass')
-// })
 
 
 // 點擊小班制之函式
@@ -302,6 +317,14 @@ function oneClass() {
   cardContainer.innerHTML = htmlContent
 }
 
+// 執行輪播圖function 
+showSlides(slideIndex);
+
+
+// 自動輪播每 3 秒
+setInterval(function () {
+  plusSlides(1);
+}, 5000);
 
 
 // 呼叫點擊全部按鍵的函式
