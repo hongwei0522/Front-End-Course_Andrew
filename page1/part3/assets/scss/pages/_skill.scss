@@ -35,7 +35,7 @@ main {
     padding: 235px 0;
 
     .skill-container {
-      width: 40%;
+      width: 85%;
       margin: 0 auto;
       text-align: center;
       color: white;
@@ -54,9 +54,347 @@ main {
       }
 
       .skill-two-description {
-        margin-top: 20px;
+        width: 45%;
+        margin: 0 auto;
+        padding-top: 20px;
         font-size: 18px;
         line-height: 30px;
+
+        // 螢幕尺寸390
+        @include pad {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // skill-three
+  .skill-three-wrapper {
+    .skill-container {
+      width: 85%;
+      margin: 0 auto;
+
+      .three-content {
+        position: relative;
+        width: 310px;
+        margin: 0 auto;
+        padding: 140px 0px;
+        letter-spacing: 3px;
+
+        .row {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .html-row {
+            border: $primary-border;
+            width: 118px;
+            padding: 2.5px 0px;
+            margin: 15px 0px;
+            color: $primary-blue;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+              width: 125px;
+              padding: 4.5px 0px;
+              font-size: 18px;
+            }
+          }
+
+          .normal-line {
+            border: $second-gray-border;
+            width: 118px;
+            padding: 2.5px;
+            margin: 15px 0px;
+            color: $second-gray;
+            text-align: center;
+            line-height: 30px;
+            transition: all 0.3s ease-out;
+
+            &:hover {
+              width: 125px;
+              padding: 4.5px 0px;
+              font-size: 18px;
+            }
+          }
+
+          .parallel-line {
+            @include parallel-line;
+          }
+
+          .space-center {
+            width: 30px;
+          }
+        }
+
+        .row-line-one {
+          display: flex;
+          align-items: center;
+          justify-content: left;
+          padding-left: 125px;
+
+          .left-line {
+            @include left-line;
+          }
+        }
+
+        .row-line-two {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .left-line {
+            @include left-line;
+            margin-left: 108px;
+          }
+
+          .straight-line {
+            @include straight-line;
+          }
+        }
+
+        .row-line-three {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .left-line {
+            @include left-line;
+            margin-left: 66px;
+          }
+        }
+
+        .row-line-four {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .left-line {
+            @include left-line;
+          }
+
+          .right-line {
+            @include right-line;
+          }
+        }
+
+        .row-line-five {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .straight-line {
+            @include straight-line;
+          }
+        }
+
+        .row-line-six {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .left-line {
+            @include left-line;
+          }
+        }
+
+        .emojiBox {
+          position: absolute;
+          width: 140px;
+          height: 40px;
+          top: 100px;
+          left: 85px;
+          cursor: pointer;
+
+          .emojiImg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  #showDetail {
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+//  All Emoji
+.all-emoji-wrapper {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(192, 192, 192, 0.3);
+  z-index: 10;
+
+  .emoji-conatainer {
+    width: 300px;
+    padding: 25px 0px;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+    border-radius: 5px;
+    background-color: rgba(26, 216, 211, 0.8);
+
+    .emoji-title {
+      margin-bottom: 26px;
+    }
+
+    .choose-emoji {
+      display: flex;
+      justify-content: space-evenly;
+
+      .emojiBox {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+
+        &:hover {
+          animation: rotatemove 3s ease-in-out;
+        }
+
+        .emoji-one {
+          width: 100%;
+          height: 100%;
+        }
+
+        .emoji-two {
+          width: 100%;
+          height: 100%;
+        }
+
+        .emoji-three {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+// 問答題
+.game-wrapper {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(192, 192, 192, 0.3);
+  z-index: 5;
+
+  .game-container {
+    position: relative;
+    width: 350px;
+    height: 450px;
+    background-color: $primary-blue;
+
+    .container-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.1;
+    }
+
+    .game-word {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .game-title {
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+        letter-spacing: 1px;
+        padding: 20px 40px 40px 40px;
+      }
+
+      .game-text {
+        position: relative;
+        width: 250px;
+        padding: 10px 22px;
+        margin-bottom: 10px;
+        color: $primary-blue;
+        font-size: 16px;
+        text-align: center;
+        background-color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 2;
+
+        .game-icon {
+          position: absolute;
+          top: 10px;
+          left: 26px;
+          width: 22px;
+          height: 22px;
+          margin: auto;
+        }
+      }
+
+      .right-arrow {
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        margin: 50px auto;
+        cursor: pointer;
+        animation: arrowChange 0.3s ease 0s infinite alternate;
+      }
+    }
+  }
+}
+
+// 打字頁面
+.typing-wrapper {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 7;
+
+  .typing-container {
+    margin: 0 auto;
+    width: 300px;
+
+    #typing-text {
+      font-size: 24px;
+      color: #fff;
+      line-height: 35px;
+      letter-spacing: 3px;
+      word-break: break-all;
+      overflow: hidden;
+
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        border-bottom: 2px solid white;
+        animation: flash 0.8s ease-in-out infinite;
       }
     }
   }
