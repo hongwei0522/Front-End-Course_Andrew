@@ -7,8 +7,15 @@ $gray-color: #ececec;
 // border
 $primary-border: 1px solid rgb(26, 216, 211);
 $second-gray-border: 1px solid rgb(128, 128, 128);
+$third-gray-border: 1px solid rgb(207, 206, 206);
 
 // mixin RWD
+//contact pc 1480
+@mixin plusPc {
+  @media (max-width:1480px) {
+    @content;
+  }
+}
 
 // content & enlarge pc 1200
 @mixin maxPc {

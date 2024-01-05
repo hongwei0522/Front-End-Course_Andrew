@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta
-      name="description"
-      content="近年來，社會對於軟體工程師的需求急速增加，全台各地的程式設計補習班如雨後春筍般冒出，而想要轉職軟體工程師相關的人，在時間有限下，如何挑選適合自己的課程環境就成了重要的選擇，而「Front-Enter 網站」是針對想轉職前端工程的人，提供學習資源資訊的網站，找到適合自己的學習環境，特別對前端工程師，進行蒐集、分類相關資訊"
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="" />
-    <meta property="og:title" content="Front-Enter-前端轉職資訊" />
-    <meta
-      property="og:image"
-      content="https://frankyeah.github.io/Front-Enter/images/key-visual.jpg"
-    />
-    <meta
-      property="og:description"
-      content="近年來，社會對於軟體工程師的需求急速增加，全台各地的程式設計補習班如雨後春筍般冒出，而想要轉職軟體工程師相關的人，在時間有限下，如何挑選適合自己的課程環境就成了重要的選擇，而「Front-Enter 網站」是針對想轉職前端工程的人，提供學習資源資訊的網站，找到適合自己的學習環境，特別對前端工程師，進行蒐集、分類相關資訊"
-    />
-    <meta property="og:site_name" content="my website" />
-    <meta name="format-detection" content="telephone=no" />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -43,7 +26,7 @@
           <a class="nav-item" href="./skill.html">技能樹</a>
         </div>
         <div>
-          <a class="nav-item" href="#">登入</a>
+          <p id="loginClick" class="nav-item">登入</p>
         </div>
         <div class="search-part">
           <img id="Search" src="../assets/images/FE_search_green.png" />
@@ -202,6 +185,29 @@
       <div id="loadingImg" class="loading-img"></div>
     </div>
 
+    <!-- 登入區塊 -->
+    <div class="login-wrapper">
+      <div class="login-container">
+        <div class="login-box">
+          <img src="../assets/images/FE_logo-2.png" alt="loginImg" />
+        </div>
+        <form>
+          <div class="login-inputs">
+            <input type="text" placeholder="Email" />
+            <input type="text" placeholder="******" />
+          </div>
+          <p class="forget-password">忘記密碼?</p>
+          <div class="login-btns">
+            <div class="btn-group">
+              <button class="login-btn">註冊</button>
+              <button class="login-btn">登入</button>
+            </div>
+            <button class="gmail-btn">Log In With Gmail</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- aisde -->
     <aside
       id="my-aside"
@@ -212,7 +218,7 @@
 
     <!-- footer -->
     <footer>
-      <p><a href="#">聯絡</a></p>
+      <p><a href="./contact.html">聯絡</a></p>
       <p class="m-word">&nbsp;&nbsp; 0917-218-567</p>
       <p class="e-word">&nbsp;&nbsp; bbb24295234@gmail.com</p>
       <div>

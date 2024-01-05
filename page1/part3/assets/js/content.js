@@ -6,6 +6,8 @@ let dataArray = Object.values(data.article)
 // 設計成專屬的資料結構
 let contents = dataArray.map(item => {
   return {
+    banner: item.rectangleUrl,
+    bannerName: item.name,
     classId: item.creatTime,
     classTopic: item.topic,
     classCity: item.city,
@@ -21,7 +23,7 @@ let contents = dataArray.map(item => {
 })
 
 // 確認 contents 資料結構
-// console.log(contents)
+console.log(contents)
 
 // img index
 let imgIndex = 0
@@ -52,6 +54,9 @@ function contentLayout() {
   contents.forEach(content => {
     // 參數的id與資料中的id相符合 => 渲染該課程內頁
     if(content.classId === id) {
+      app.get(".content-one-wrapper").style.backgroundImage =
+        `url(${content.banner})`;
+      app.get(".content-one-title").textContent = content.bannerName;
       app.get('.text-topic').textContent = content.classTopic
       app.get('.text-description').innerHTML = content.classContent
       app.get('#row-city').textContent = content.classCity
