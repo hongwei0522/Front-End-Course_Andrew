@@ -31,11 +31,6 @@ li {
   margin: 0 auto;
 }
 
-.content-container {
-  max-width: 90%;
-  margin: 0 auto;
-}
-
 a {
   text-decoration: none;
   cursor: pointer;
@@ -55,6 +50,107 @@ a {
 
 .d-none {
   display: none;
+}
+
+.login-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(192, 192, 192, 0.3);
+  z-index: 3;
+}
+.login-wrapper .login-container {
+  width: 350px;
+  height: 430px;
+  padding-top: 20px;
+  border: 1px solid rgb(128, 128, 128);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+}
+.login-wrapper .login-container .login-box {
+  width: 225px;
+  height: 105px;
+  margin: 0 auto;
+}
+.login-wrapper .login-container .login-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.login-wrapper .login-container form {
+  letter-spacing: 3px;
+}
+.login-wrapper .login-container form .login-inputs {
+  width: 73%;
+  margin: 0 auto;
+  height: 16%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.login-wrapper .login-container form .login-inputs input {
+  width: 100%;
+  padding: 6px;
+  font-size: 16px;
+  line-height: 25px;
+  border: 0.5px solid rgb(128, 128, 128);
+  letter-spacing: 3px;
+}
+.login-wrapper .login-container form .forget-password {
+  width: 73%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  color: rgb(128, 128, 128);
+  text-align: end;
+  cursor: pointer;
+}
+.login-wrapper .login-container form .login-btns {
+  width: 73%;
+  margin: 0 auto;
+}
+.login-wrapper .login-container form .login-btns .btn-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.login-wrapper .login-container form .login-btns .btn-group .login-btn {
+  margin: 18px 0px;
+  padding: 7px 34px;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(26, 216, 211);
+  letter-spacing: 3px;
+  cursor: pointer;
+}
+.login-wrapper .login-container form .login-btns .gmail-btn {
+  padding: 8.5px 30px;
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: #d93025;
+  letter-spacing: 3px;
+  cursor: pointer;
 }
 
 /* loading 動畫 */
@@ -1267,8 +1363,37 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
     height: 251%;
   }
 }
-.content-wrapper {
-  padding: 100px 0;
+.content-wrapper .content-one-wrapper {
+  background-image: url("https://frankyeah.github.io/Front-Enter/images/contact-key.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 100vw;
+  padding: 200px 0;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.content-wrapper .content-one-wrapper .content-one-title {
+  font-size: 24px;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.7);
+  padding: 6px 13px;
+  border-radius: 5px;
+  letter-spacing: 10px;
+  text-align: center;
+}
+.content-wrapper .content-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 80px 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1276,15 +1401,16 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.content-wrapper .img-section {
+.content-wrapper .content-container .img-section {
   padding-top: 22px;
+  margin-right: 20px;
 }
-.content-wrapper .img-section .left-box-one,
-.content-wrapper .img-section .left-box {
+.content-wrapper .content-container .img-section .left-box-one,
+.content-wrapper .content-container .img-section .left-box {
   width: 400px;
   height: 266px;
   margin-bottom: 40px;
@@ -1292,55 +1418,55 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   -webkit-transition: all 0.6s ease-out;
   transition: all 0.6s ease-out;
 }
-.content-wrapper .img-section .left-box-one:hover,
-.content-wrapper .img-section .left-box:hover {
+.content-wrapper .content-container .img-section .left-box-one:hover,
+.content-wrapper .content-container .img-section .left-box:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
   margin-bottom: 55px;
 }
-.content-wrapper .img-section .left-box-one:not(:hover),
-.content-wrapper .img-section .left-box:not(:hover) {
+.content-wrapper .content-container .img-section .left-box-one:not(:hover),
+.content-wrapper .content-container .img-section .left-box:not(:hover) {
   -webkit-transform: scale(1);
           transform: scale(1);
   margin-bottom: 40px;
   position: relative;
 }
-.content-wrapper .img-section .left-box-one img,
-.content-wrapper .img-section .left-box img {
+.content-wrapper .content-container .img-section .left-box-one img,
+.content-wrapper .content-container .img-section .left-box img {
   width: 100%;
   height: 100%;
   border-radius: 5px;
 }
-.content-wrapper .text-section {
-  width: 62%;
+.content-wrapper .content-container .text-section {
+  width: 53%;
   margin-left: 35px;
 }
-.content-wrapper .text-section .text-topic {
+.content-wrapper .content-container .text-section .text-topic {
   font-size: 20px;
   font-weight: bold;
   color: rgb(26, 216, 211);
   letter-spacing: 3px;
 }
-.content-wrapper .text-section .text-description {
+.content-wrapper .content-container .text-section .text-description {
   font-size: 16px;
   color: rgb(128, 128, 128);
   line-height: 28px;
   text-align: justify;
   letter-spacing: 3px;
 }
-.content-wrapper .text-content .text-content-container {
+.content-wrapper .content-container .text-content .text-content-container {
   width: 400px;
   margin: 0 auto;
   padding-top: 100px;
   text-align: center;
 }
-.content-wrapper .text-content .text-content-container .content-word {
+.content-wrapper .content-container .text-content .text-content-container .content-word {
   position: relative;
   font-size: 18px;
   color: rgb(26, 216, 211);
   padding-top: 35px;
 }
-.content-wrapper .text-content .text-content-container .content-word::before {
+.content-wrapper .content-container .text-content .text-content-container .content-word::before {
   position: absolute;
   content: "";
   width: 38px;
@@ -1348,7 +1474,7 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   bottom: -7px;
   background-color: rgb(26, 216, 211);
 }
-.content-wrapper .text-content .text-content-container .row-group .row {
+.content-wrapper .content-container .text-content .text-content-container .row-group .row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1359,7 +1485,7 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   padding: 23px px 0;
   border-bottom: 1px solid rgba(197, 197, 197, 0.8);
 }
-.content-wrapper .text-content .text-content-container .row-group .row .row-name {
+.content-wrapper .content-container .text-content .text-content-container .row-group .row .row-name {
   width: 100px;
   font-size: 16px;
   font-weight: bold;
@@ -1367,7 +1493,7 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   text-align: start;
   letter-spacing: 3px;
 }
-.content-wrapper .text-content .text-content-container .row-group .row .row-value {
+.content-wrapper .content-container .text-content .text-content-container .row-group .row .row-value {
   font-size: 16px;
   color: rgb(128, 128, 128);
   letter-spacing: 3px;
@@ -1436,24 +1562,24 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   }
 }
 @media (max-width: 1200px) {
-  .content-wrapper {
+  .content-wrapper .content-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     text-align: center;
   }
-  .content-wrapper .img-section {
+  .content-wrapper .content-container .img-section {
     margin: 0 auto;
   }
-  .content-wrapper .img-section .left-box {
+  .content-wrapper .content-container .img-section .left-box {
     display: none;
   }
-  .content-wrapper .text-section {
+  .content-wrapper .content-container .text-section {
     width: 90%;
     margin: 0 auto;
   }
-  .content-wrapper .text-section .text-title {
+  .content-wrapper .content-container .text-section .text-title {
     text-align: start;
   }
 }
@@ -1467,18 +1593,18 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   }
 }
 @media (max-width: 576px) {
-  .content-wrapper .img-section .left-box-one {
+  .content-wrapper .content-container .img-section .left-box-one {
     height: 240px;
     width: 340px;
   }
-  .content-wrapper .text-section .text-content .text-content-container {
+  .content-wrapper .content-container .text-section .text-content .text-content-container {
     width: 90%;
   }
-  .content-wrapper .text-section .text-content .text-content-container .row-group .row .row-name {
+  .content-wrapper .content-container .text-section .text-content .text-content-container .row-group .row .row-name {
     width: 65px;
     font-size: 12px;
   }
-  .content-wrapper .text-section .text-content .text-content-container .row-group .row .row-value {
+  .content-wrapper .content-container .text-section .text-content .text-content-container .row-group .row .row-value {
     font-size: 12px;
   }
   .enlarge-wrapper .enlargeBackground .enlarge-container {
@@ -1490,14 +1616,14 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box .more-
   }
 }
 @media (max-width: 390px) {
-  .content-wrapper .img-section .left-box-one {
+  .content-wrapper .content-container .img-section .left-box-one {
     height: 200px;
     width: 300px;
   }
-  .content-wrapper .text-section .text-content .text-content-container .row-group .row .row-name {
+  .content-wrapper .content-container .text-section .text-content .text-content-container .row-group .row .row-name {
     font-size: 10px;
   }
-  .content-wrapper .text-section .text-content .text-content-container .row-group .row .row-value {
+  .content-wrapper .content-container .text-section .text-content .text-content-container .row-group .row .row-value {
     font-size: 10px;
   }
 }
@@ -1966,4 +2092,164 @@ main #showDetail {
   border-bottom: 2px solid white;
   -webkit-animation: flash 0.8s ease-in-out infinite;
           animation: flash 0.8s ease-in-out infinite;
+}
+
+main .contact-one-wrapper {
+  background-image: url("https://frankyeah.github.io/Front-Enter/images/contact-key.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  max-width: 100vw;
+  padding: 200px 0;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main .contact-one-wrapper .contact-one-title {
+  font-size: 24px;
+  color: white;
+  background-color: rgba(128, 128, 128, 0.7);
+  padding: 6px 13px;
+  border-radius: 5px;
+  letter-spacing: 10px;
+  text-align: center;
+}
+main .contact-two-wrapper {
+  padding: 50px 0px;
+}
+main .contact-two-wrapper .contact-two-container {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media (max-width: 1200px) {
+  main .contact-two-wrapper .contact-two-container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+main .contact-two-wrapper .contact-two-container .left-info {
+  width: 700px;
+  color: rgb(128, 128, 128);
+}
+@media (max-width: 1480px) {
+  main .contact-two-wrapper .contact-two-container .left-info {
+    width: 500px;
+  }
+}
+main .contact-two-wrapper .contact-two-container .left-info .contact-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 32px;
+}
+main .contact-two-wrapper .contact-two-container .left-info .contact-word {
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+}
+main .contact-two-wrapper .contact-two-container .left-info form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+main .contact-two-wrapper .contact-two-container .left-info form input {
+  width: 80%;
+  color: rgb(128, 128, 128);
+  font-size: 16px;
+  padding: 10px 10px;
+  margin-bottom: 28px;
+  border: 1px solid rgb(207, 206, 206);
+  border-radius: 6px;
+}
+main .contact-two-wrapper .contact-two-container .left-info form input:focus {
+  outline: none;
+}
+main .contact-two-wrapper .contact-two-container .left-info form textarea {
+  width: 80%;
+  height: 200px;
+  color: rgb(128, 128, 128);
+  font-size: 16px;
+  padding: 10px 10px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(207, 206, 206);
+  border-radius: 6px;
+}
+main .contact-two-wrapper .contact-two-container .left-info form textarea:focus {
+  outline: none;
+}
+main .contact-two-wrapper .contact-two-container .left-info form .email-btn {
+  width: 100px;
+  padding: 11px 8px;
+  margin: 16px 0px;
+  font-size: 18px;
+  color: #fff;
+  border: 1px solid rgb(26, 216, 211);
+  background-color: rgb(26, 216, 211);
+  border-radius: 6px;
+  cursor: pointer;
+}
+main .contact-two-wrapper .contact-two-container .left-info form .email-btn:hover {
+  opacity: 0.8;
+}
+main .contact-two-wrapper .contact-two-container .right-info {
+  width: 700px;
+}
+@media (max-width: 1480px) {
+  main .contact-two-wrapper .contact-two-container .right-info {
+    width: 500px;
+  }
+}
+main .contact-two-wrapper .contact-two-container .right-info .address-top {
+  height: 224px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 83px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  background-color: rgba(230, 230, 230, 0.3);
+}
+main .contact-two-wrapper .contact-two-container .right-info .address-top .address-location {
+  width: 35px;
+  height: 50px;
+}
+main .contact-two-wrapper .contact-two-container .right-info .address-top .address-location img {
+  width: 100%;
+  height: 100%;
+}
+main .contact-two-wrapper .contact-two-container .right-info .address-top .address-location img:hover {
+  opacity: 0.8;
+}
+main .contact-two-wrapper .contact-two-container .right-info .address-bottom {
+  width: 100%;
+  height: 224px;
+}
+main .contact-two-wrapper .contact-two-container .right-info .address-bottom iframe {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=all.css.map */

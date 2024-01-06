@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>文章列表</title>
+    <title>聯絡我們</title>
     <link rel="stylesheet" href="../assets/css/all.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,53 +47,58 @@
       <div class="black-ground"></div>
     </div>
 
-    <!-- JS輪播圖 -->
-    <div class="slideshow-container">
-      <div class="mySlides">
-        <div class="slide-wrapper">
-          <div class="slide-title">蒐羅前端學校</div>
-        </div>
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-3.jpg?alt=media&token=8f7f8f02-5066-452a-863c-a4e715d2657a"
-          alt="圖片 1"
-        />
-      </div>
-      <div class="mySlides">
-        <div class="slide-wrapper">
-          <div class="slide-title">蒐羅前端學校</div>
-        </div>
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-2.jpg?alt=media&token=f28dbea4-af0c-4743-a75a-426198fe409e"
-          alt="圖片 2"
-        />
-      </div>
-      <div class="mySlides">
-        <div class="slide-wrapper">
-          <div class="slide-title">蒐羅前端學校</div>
-        </div>
-        <img
-          src="https://firebasestorage.googleapis.com/v0/b/front-enter.appspot.com/o/images%2Frotate-img-1.jpg?alt=media&token=059f5677-409b-4fc1-a772-baf1dece5063"
-          alt="圖片 3"
-        />
-      </div>
-    </div>
-
+    <!-- main 開始 -->
     <main>
-      <!--  class-item -->
-      <div class="class-wrapper">
-        <ul class="item-container container">
-          <li id="allClass" class="class-link">全部</li>
-          <li id="smallClass" class="class-link">小班制</li>
-          <li id="freeRange" class="class-link">放養制</li>
-          <li id="oneOnOne" class="class-link">一對一</li>
-        </ul>
-      </div>
+      <!-- contact-one -->
+      <section class="contact-one-wrapper">
+        <div class="contact-one-title">聯絡諮詢</div>
+      </section>
 
-      <!-- class-card -->
-      <div class="card-wrapper">
-        <ul class="card-container container"></ul>
+      <!-- contact-two -->
+      <div class="contact-two-wrapper">
+        <div class="contact-two-container">
+          <div class="left-info">
+            <p class="contact-title">聯絡我們</p>
+            <p class="contact-word">想進一步了解我們？歡迎來信與我們聯絡。</p>
+            <form>
+              <input placeholder="名字" type="text" />
+              <input placeholder="信箱" type="text" />
+              <input placeholder="信件主旨" type="text" />
+              <textarea
+                id="content-input"
+                cols="30"
+                rows="10"
+                placeholder="信件內容"
+              ></textarea>
+              <button type="button" class="email-btn">送出</button>
+            </form>
+          </div>
+          <div class="right-info">
+            <div class="address-top">
+              <div class="address-location">
+                <img
+                  src="../assets/images/location_icon.png"
+                  alt="location-icon"
+                />
+              </div>
+              <p>高雄市旗津區旗津二路255號</p>
+            </div>
+            <div class="address-bottom">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.0723371001664!2d120.29233697507784!3d22.57639767948908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e03aaf77567f5%3A0x1a141b04550be29f!2z5peX5rSl5Lit5rSy5buj5r-f5a6u!5e0!3m2!1szh-TW!2stw!4v1704095321141!5m2!1szh-TW!2stw"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
+    <!-- main 結束 -->
 
     <!-- 動畫區塊 -->
     <div id="top" class="top">
@@ -149,7 +154,7 @@
       </div>
     </div>
 
-    <!-- aisde -->
+    <!-- aside -->
     <aside
       id="my-aside"
       style="animation: 0.9s ease 0s 1 alternate none running asiderunning"
@@ -159,6 +164,6 @@
 
     <script src="../assets/js/lib.js"></script>
     <script src="../assets/js/common.js"></script>
-    <script type="module" src="../assets/js/article.js"></script>
+    <script type="module" src="../assets/js/content.js"></script>
   </body>
 </html>
