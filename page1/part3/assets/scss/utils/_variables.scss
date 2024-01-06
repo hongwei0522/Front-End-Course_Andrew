@@ -1,17 +1,14 @@
-
 // variable
 // color
 $primary-blue: rgb(26, 216, 211);
 $second-gray: rgb(128, 128, 128);
 $gray-color: #ececec;
 
-
-
 // border
 $primary-border: 1px solid rgb(26, 216, 211);
+$second-gray-border: 1px solid rgb(128, 128, 128);
 
-
-// mixin
+// mixin RWD
 
 // content & enlarge pc 1200
 @mixin maxPc {
@@ -22,28 +19,72 @@ $primary-border: 1px solid rgb(26, 216, 211);
 
 // pc
 @mixin pc {
-  @media(max-width: 1022px) {
+  @media (max-width: 1022px) {
     @content;
   }
 }
 
 // pad
 @mixin pad {
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     @content;
   }
 }
 
-// mini pad 
+// mini pad
 @mixin minipad {
-  @media(max-width: 576px) {
+  @media (max-width: 576px) {
     @content;
   }
 }
 
-// mobile 
+// mobile
 @mixin mobile {
-  @media(max-width:390px) {
+  @media (max-width: 390px) {
     @content;
   }
+}
+
+
+// mixin others
+// 橫線
+@mixin parallel-line {
+  background-image: url("https://frankyeah.github.io/Front-Enter/images/minus-symbol-gray.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+}
+
+// 直線
+@mixin straight-line {
+  background-image: url("https://frankyeah.github.io/Front-Enter/images/minus-symbol-gray.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  transform: rotate(90deg);
+}
+
+// 左斜線
+@mixin left-line {
+  background-image: url("https://frankyeah.github.io/Front-Enter/images/diagonal-line-gray.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+}
+
+// 右斜線
+@mixin right-line {
+  background-image: url("https://frankyeah.github.io/Front-Enter/images/diagonal-line-gray.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  transform: rotate(270deg);
 }
