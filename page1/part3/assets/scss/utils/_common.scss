@@ -98,6 +98,53 @@
   }
 }
 
+// 彈跳視窗
+.alert-wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+
+  .alert-container {
+    width: 300px;
+    height: 180px;
+    background-color: white;
+    border-radius: 5px;
+
+    .alert-title {
+      font-size: 24px;
+      text-align: center;
+      color: $second-gray;
+      letter-spacing: 3px;
+    }
+
+    .alert-word {
+      text-align: center;
+      color: $second-gray;
+      margin-bottom: 22px;
+    }
+
+    .alert-btn {
+      width: 30%;
+      margin: 0 auto;
+      padding: 5px;
+      font-size: 16px;
+      color: #fff;
+      text-align: center;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: $primary-blue;
+    }
+  }
+}
+
 /* loading 動畫 */
 div.loading-drawing {
   z-index: 3;
