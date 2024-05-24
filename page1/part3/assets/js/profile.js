@@ -2,7 +2,9 @@ const prfileImg = dom.get("#profile-img");
 const prfileName = dom.get("#profile-name");
 const prfilePhone = dom.get("#profile-phone");
 const prfileEmail = dom.get("#profile-email");
-const defaultImg = "/page1/part3/assets/images/user-img.png";
+const defaultImg =
+  "https://static.vecteezy.com/system/resources/previews/018/765/138/non_2x/user-profile-icon-in-flat-style-member-avatar-illustration-on-isolated-background-human-permission-sign-business-concept-vector.jpg";
+  
 let memberRef = database.ref("/member");
 let data;
 let profileData;
@@ -13,7 +15,7 @@ firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // let data;
     // let profileData;
-
+  
     memberRef
       .orderByChild("mail")
       .equalTo(userState.email)
@@ -35,6 +37,7 @@ firebase.auth().onAuthStateChanged(function (user) {
           prfileName.value = displayName;
           prfileEmail.value = email;
           prfilePhone.value = phoneNumber;
+
         } else {
           const name = profileData.name || "";
           const email = profileData.mail || "";
@@ -115,7 +118,7 @@ function updateUserData() {
         .database()
         .ref("member/" + postKey)
         .set(newUserDate);
-      console.log("已更新資料");
+        console.log("已更新資料");
     });
 }
 

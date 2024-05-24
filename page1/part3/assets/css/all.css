@@ -2452,8 +2452,8 @@ main .profile-two-wrapper .profile-two-container .user-input .user-avavtar {
 }
 @media (max-width: 576px) {
   main .profile-two-wrapper .profile-two-container .user-input .user-avavtar {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
   }
 }
 main .profile-two-wrapper .profile-two-container .user-input .user-avavtar img {
