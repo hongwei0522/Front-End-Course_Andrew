@@ -12,7 +12,7 @@ $third-gray-border: 1px solid rgb(207, 206, 206);
 // mixin RWD
 //contact pc 1480
 @mixin plusPc {
-  @media (max-width:1480px) {
+  @media (max-width: 1480px) {
     @content;
   }
 }
@@ -51,7 +51,6 @@ $third-gray-border: 1px solid rgb(207, 206, 206);
     @content;
   }
 }
-
 
 // mixin others
 // 橫線
@@ -94,4 +93,29 @@ $third-gray-border: 1px solid rgb(207, 206, 206);
   width: 30px;
   height: 30px;
   transform: rotate(270deg);
+}
+
+// profile 重複樣式
+@mixin profileBtn {
+  width: 105px;
+  margin-top: 30px;
+  margin-left: 25px;
+  padding: 10px 11px;
+
+  color: white;
+  font-size: 16px;
+  border: $primary-border;
+  border-radius: 5px;
+  background-color: $primary-blue;
+  cursor: pointer;
+  letter-spacing: 3px;
+
+  &:hover {
+    color: $primary-blue;
+    background-color: white;
+  }
+
+  @include pad {
+    margin-left: 0px;
+  }
 }

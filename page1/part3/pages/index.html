@@ -156,29 +156,6 @@
       <div id="loadingImg" class="loading-img"></div>
     </div>
 
-    <!-- 登入區塊 -->
-    <div class="login-wrapper">
-      <div class="login-container">
-        <div class="login-box">
-          <img src="../assets/images/FE_logo-2.png" alt="loginImg" />
-        </div>
-        <form>
-          <div class="login-inputs">
-            <input type="text" placeholder="Email" />
-            <input type="text" placeholder="******" />
-          </div>
-          <p class="forget-password">忘記密碼?</p>
-          <div class="login-btns">
-            <div class="btn-group">
-              <button class="login-btn">註冊</button>
-              <button class="login-btn">登入</button>
-            </div>
-            <button class="gmail-btn">Log In With Gmail</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
     <!-- footer -->
     <footer>
       <p><a href="./contact.html">聯絡</a></p>
@@ -196,7 +173,50 @@
         </a>
       </div>
     </footer>
-    <script src="../assets/js/lib.js"></script>
+
+    <!-- 登入區塊 -->
+    <div class="login-wrapper">
+      <div class="login-container">
+        <div class="login-box">
+          <img src="../assets/images/FE_logo-2.png" alt="loginImg" />
+        </div>
+        <form>
+          <div class="login-inputs">
+            <input id="email" type="email" placeholder="Email" required />
+            <input
+              id="password"
+              type="password"
+              placeholder="******"
+              required
+            />
+          </div>
+          <p class="forget-password">忘記密碼?</p>
+          <div class="login-btns">
+            <div class="btn-group">
+              <button type="button" id="signup" class="login-btn">註冊</button>
+              <button type="button" id="login" class="login-btn">登入</button>
+            </div>
+            <button type="button" id="gmail-btn">Log In With Gmail</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 彈跳視窗 -->
+    <div class="alert-wrapper">
+      <div class="alert-container">
+        <p class="alert-title">Remind</p>
+        <p class="alert-word">電子郵件已註冊，或尚未確實填寫。</p>
+        <div id="alert-btn">OK</div>
+      </div>
+    </div>
+
+    <!-- 在 HTML 文件中直接引入 Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+    <script src="../assets/js/settings.js"></script>
     <script src="../assets/js/common.js"></script>
   </body>
 </html>
