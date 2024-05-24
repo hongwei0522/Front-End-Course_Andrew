@@ -1,64 +1,60 @@
-
 // step 1: 文字說明 函式
 // 滑過程式語言標題 => 出現文字說明
 function showBox(topNum, leftNum, htmlContent) {
-  app.get("#showDetail").style.width = "226px";
-  app.get("#showDetail").style.height = "auto";
-  app.get("#showDetail").style.color = "rgb(128, 128, 128)";
-  app.get("#showDetail").style.padding = "15px 10px";
-  app.get("#showDetail").style.borderRadius = "5px";
-  app.get("#showDetail").style.textAlign = "center";
-  app.get("#showDetail").style.backgroundColor = "#ececec";
-  app.get("#showDetail").style.position = "absolute";
-  app.get("#showDetail").style.top = topNum;
-  app.get("#showDetail").style.left = leftNum;
-  app.get("#showDetail").style.display = "block";
-  app.get("#showDetail").innerHTML = htmlContent;
+  dom.get("#showDetail").style.width = "226px";
+  dom.get("#showDetail").style.height = "auto";
+  dom.get("#showDetail").style.color = "rgb(128, 128, 128)";
+  dom.get("#showDetail").style.padding = "15px 10px";
+  dom.get("#showDetail").style.borderRadius = "5px";
+  dom.get("#showDetail").style.textAlign = "center";
+  dom.get("#showDetail").style.backgroundColor = "#ececec";
+  dom.get("#showDetail").style.position = "absolute";
+  dom.get("#showDetail").style.top = topNum;
+  dom.get("#showDetail").style.left = leftNum;
+  dom.get("#showDetail").style.display = "block";
+  dom.get("#showDetail").innerHTML = htmlContent;
 }
 
 // 滑離程式語言標題 => 文字說明消失
 function hideBox() {
-  app.get("#showDetail").style.display = "none";
-  app.get("#showDetail").innerHTML = "";
+  dom.get("#showDetail").style.display = "none";
+  dom.get("#showDetail").innerHTML = "";
 }
 
 // emoji 出現
-app.get("#emojiP").addEventListener("click", () => {
-  app.get(".all-emoji-wrapper").style.display = "flex";
+dom.get("#emojiP").addEventListener("click", () => {
+  dom.get(".all-emoji-wrapper").style.display = "flex";
 });
 
 // emoji 消失
-app.get("#emoji-part").addEventListener("click", () => {
-  app.get("#emoji-part").style.display = "none";
+dom.get("#emoji-part").addEventListener("click", () => {
+  dom.get("#emoji-part").style.display = "none";
 });
 
 // 更換emoji 1
-app.get(".emoji-one").addEventListener("click", () => {
-  app.get("#emoji-part").style.display = "none";
-  app.get(".emojiImg").src = "../assets/images/emoji1.svg";
+dom.get(".emoji-one").addEventListener("click", () => {
+  dom.get("#emoji-part").style.display = "none";
+  dom.get(".emojiImg").src = "../assets/images/emoji1.svg";
 });
 
 // 更換emoji 2
-app.get(".emoji-two").addEventListener("click", () => {
-  app.get("#emoji-part").style.display = "none";
-  app.get(".emojiImg").src = "../assets/images/emoji2.svg";
+dom.get(".emoji-two").addEventListener("click", () => {
+  dom.get("#emoji-part").style.display = "none";
+  dom.get(".emojiImg").src = "../assets/images/emoji2.svg";
 });
 
 // 更換emoji 3
-app.get(".emoji-three").addEventListener("click", () => {
-  app.get("#emoji-part").style.display = "none";
-  app.get(".emojiImg").src = "../assets/images/emoji3.svg";
+dom.get(".emoji-three").addEventListener("click", () => {
+  dom.get("#emoji-part").style.display = "none";
+  dom.get(".emojiImg").src = "../assets/images/emoji3.svg";
 });
-
 
 // 多個game-icon 節點
 const gameIconMuti = document.querySelectorAll(".game-icon");
 
-
-
 // step1: 文字說明 事件處理
 // HTML
-app.get("#htmlP").addEventListener("mouseover", () => {
+dom.get("#htmlP").addEventListener("mouseover", () => {
   showBox(
     "16%",
     "106%",
@@ -66,10 +62,10 @@ app.get("#htmlP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#htmlP").addEventListener("mouseleave", hideBox);
+dom.get("#htmlP").addEventListener("mouseleave", hideBox);
 
 // CSS
-app.get("#cssP").addEventListener("mouseover", () => {
+dom.get("#cssP").addEventListener("mouseover", () => {
   showBox(
     "27%",
     "-81%",
@@ -77,10 +73,10 @@ app.get("#cssP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#cssP").addEventListener("mouseleave", hideBox);
+dom.get("#cssP").addEventListener("mouseleave", hideBox);
 
 // JS
-app.get("#jsP").addEventListener("mouseover", () => {
+dom.get("#jsP").addEventListener("mouseover", () => {
   showBox(
     "27%",
     "106%",
@@ -88,10 +84,10 @@ app.get("#jsP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#jsP").addEventListener("mouseleave", hideBox);
+dom.get("#jsP").addEventListener("mouseleave", hideBox);
 
 // jQuery
-app.get("#jqP").addEventListener("mouseover", () => {
+dom.get("#jqP").addEventListener("mouseover", () => {
   showBox(
     "37%",
     "-81%",
@@ -99,10 +95,10 @@ app.get("#jqP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#jqP").addEventListener("mouseleave", hideBox);
+dom.get("#jqP").addEventListener("mouseleave", hideBox);
 
 // RWD
-app.get("#rwdP").addEventListener("mouseover", () => {
+dom.get("#rwdP").addEventListener("mouseover", () => {
   showBox(
     "37%",
     "106%",
@@ -110,10 +106,10 @@ app.get("#rwdP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#rwdP").addEventListener("mouseleave", hideBox);
+dom.get("#rwdP").addEventListener("mouseleave", hideBox);
 
 // GitHub
-app.get("#githubP").addEventListener("mouseover", () => {
+dom.get("#githubP").addEventListener("mouseover", () => {
   showBox(
     "48%",
     "106%",
@@ -121,10 +117,10 @@ app.get("#githubP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#githubP").addEventListener("mouseleave", hideBox);
+dom.get("#githubP").addEventListener("mouseleave", hideBox);
 
 // SCSS
-app.get("#scssP").addEventListener("mouseover", () => {
+dom.get("#scssP").addEventListener("mouseover", () => {
   showBox(
     "58%",
     "-81%",
@@ -132,10 +128,10 @@ app.get("#scssP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#scssP").addEventListener("mouseleave", hideBox);
+dom.get("#scssP").addEventListener("mouseleave", hideBox);
 
 //  Webpack
-app.get("#webpackP").addEventListener("mouseover", () => {
+dom.get("#webpackP").addEventListener("mouseover", () => {
   showBox(
     "58%",
     "106%",
@@ -143,10 +139,10 @@ app.get("#webpackP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#webpackP").addEventListener("mouseleave", hideBox);
+dom.get("#webpackP").addEventListener("mouseleave", hideBox);
 
 // Bootstarp
-app.get("#bootstarpP").addEventListener("mouseover", () => {
+dom.get("#bootstarpP").addEventListener("mouseover", () => {
   showBox(
     "68%",
     "-81%",
@@ -154,10 +150,10 @@ app.get("#bootstarpP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#bootstarpP").addEventListener("mouseleave", hideBox);
+dom.get("#bootstarpP").addEventListener("mouseleave", hideBox);
 
 // React
-app.get("#reactP").addEventListener("mouseover", () => {
+dom.get("#reactP").addEventListener("mouseover", () => {
   showBox(
     "68%",
     "106%",
@@ -165,10 +161,10 @@ app.get("#reactP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#reactP").addEventListener("mouseleave", hideBox);
+dom.get("#reactP").addEventListener("mouseleave", hideBox);
 
 // Unit Test
-app.get("#unitP").addEventListener("mouseover", () => {
+dom.get("#unitP").addEventListener("mouseover", () => {
   showBox(
     "68%",
     "106%",
@@ -176,25 +172,22 @@ app.get("#unitP").addEventListener("mouseover", () => {
   );
 });
 
-app.get("#unitP").addEventListener("mouseleave", hideBox);
-
-
+dom.get("#unitP").addEventListener("mouseleave", hideBox);
 
 // step2: 問答題 函式
 // 問答題節點
-const gameWrapper = app.get("#game");
-const gameWord = app.get(".game-word");
-const gameTile = app.get(".game-title");
-const AnswerOne = app.get("#game-one");
-const AnswerTwo = app.get("#game-two");
-const AnswerThree = app.get("#game-three");
-const rightArrow = app.get(".right-arrow");
-const typeWrapper = app.get(".typing-wrapper");
+const gameWrapper = dom.get("#game");
+const gameWord = dom.get(".game-word");
+const gameTile = dom.get(".game-title");
+const AnswerOne = dom.get("#game-one");
+const AnswerTwo = dom.get("#game-two");
+const AnswerThree = dom.get("#game-three");
+const rightArrow = dom.get(".right-arrow");
+const typeWrapper = dom.get(".typing-wrapper");
 
 // 答對題目 - 出現打勾icon
 function gameRightAnswer(answer) {
-
-  app.get(".right-arrow").style.backgroundImage =
+  dom.get(".right-arrow").style.backgroundImage =
     "url(https://frankyeah.github.io/Front-Enter/images/next.svg)";
   const imgIcon = document.createElement("img");
   imgIcon.setAttribute("id", "iconOne");
@@ -213,25 +206,23 @@ function gameWrongAnswer(answer, iconId) {
   answer.appendChild(imgIcon);
 }
 
-
-
 //c => emoji 位置移動
 function emojiMove(top, left) {
-    app.get("#emojiP").style.top = top;
-    app.get("#emojiP").style.left = left;
+  dom.get("#emojiP").style.top = top;
+  dom.get("#emojiP").style.left = left;
 }
 
 // d 點擊的程式語言選項變顏色
 function colorChange(point) {
-   app.get(point).style.backgroundColor = "rgb(26, 216, 211)";
-   app.get(point).style.border = "1px solid rgb(26, 216, 211)";
-   app.get(point).style.color = "white";
+  dom.get(point).style.backgroundColor = "rgb(26, 216, 211)";
+  dom.get(point).style.border = "1px solid rgb(26, 216, 211)";
+  dom.get(point).style.color = "white";
 }
 
 // e => 下一個程式語言轉變
 function nextOneChange(nextPoint) {
   const nextP = document.querySelector(nextPoint);
-  if ((nextP.style.border !== "1px solid rgb(26, 216, 211)")) {
+  if (nextP.style.border !== "1px solid rgb(26, 216, 211)") {
     nextP.style.border = "1px solid rgb(26, 216, 211)";
     nextP.style.color = "rgb(26, 216, 211)";
     nextP.style.cursor = "pointer";
@@ -248,7 +239,8 @@ const textTwo =
   "哇，你竟然連 CSS 也略懂略懂。如果階層樣式學得好，就具備基礎網頁設計師的能力了，這時候，對於細節的掌握就更加重要囉。";
 
 // JS
-const textThree = "恭喜你通過 JavaScript 關卡。JavaScript 也是小編最喜歡的語言，掌握它，就等於邁入前端工程師的行列，它不只能為你帶來一份工作，也擴展你的視野，擁有接軌科技的能力。" 
+const textThree =
+  "恭喜你通過 JavaScript 關卡。JavaScript 也是小編最喜歡的語言，掌握它，就等於邁入前端工程師的行列，它不只能為你帶來一份工作，也擴展你的視野，擁有接軌科技的能力。";
 
 // RWD
 const textFour =
@@ -272,11 +264,11 @@ const textNine =
 const textTen =
   "你太強了，React 是不容易掌握的框架，能讓使用者的體驗更好，你所使用的 facebook 就是運用這套框架呢。";
 
-  const textElev =
-    "你太強了，React 是不容易掌握的框架，能讓使用者的體驗更好，你所使用的 facebook 就是運用這套框架呢。";
+const textElev =
+  "你太強了，React 是不容易掌握的框架，能讓使用者的體驗更好，你所使用的 facebook 就是運用這套框架呢。";
 
-  const textTwelv =
-    "終於抵達最後一關了，單元測試是為了確保函式的正確性，而進行的作業。雖然單元測試是最後一關，但工程的世界無止盡，身為一位 geek 就是要不斷學習精進唷。";
+const textTwelv =
+  "終於抵達最後一關了，單元測試是為了確保函式的正確性，而進行的作業。雖然單元測試是最後一關，但工程的世界無止盡，身為一位 geek 就是要不斷學習精進唷。";
 
 const typingText = document.querySelector("#typing-text");
 let charIndex = 0;
@@ -287,7 +279,6 @@ function type(text) {
   charIndex++;
 }
 
-
 // gameWord消失
 function gameDisplayNone(e) {
   document.addEventListener("click", (e) => {
@@ -297,14 +288,13 @@ function gameDisplayNone(e) {
       target === gameWord ||
       target === rightArrow
     ) {
-      app.get(".game-wrapper").style.display = "none";
+      dom.get(".game-wrapper").style.display = "none";
       AnswerTwo.style.animation = "";
       AnswerThree.style.animation = "";
-      app.get(".right-arrow").style.backgroundImage = "";
+      dom.get(".right-arrow").style.backgroundImage = "";
     }
   });
 }
-
 
 function gameWordChange(
   title,
@@ -317,7 +307,7 @@ function gameWordChange(
   left,
   point,
   nextPoint,
-  slash,
+  slash
 ) {
   // 改變問答題文字
   gameTile.textContent = title;
@@ -326,12 +316,12 @@ function gameWordChange(
   AnswerThree.textContent = gameThree;
 
   // 已破關
-  if (app.get(point).classList.contains("clicked")) {
+  if (dom.get(point).classList.contains("clicked")) {
     return;
 
     // 未破關
   } else {
-    app.get(".game-wrapper").style.display = "flex";
+    dom.get(".game-wrapper").style.display = "flex";
 
     document.addEventListener("click", (e) => {
       const target = e.target;
@@ -386,7 +376,7 @@ function gameWordChange(
         document.querySelector(slash).style.backgroundImage = "none";
 
         //步驟 f 已點擊選項加 clicked
-        app.get(point).classList.add("clicked");
+        dom.get(point).classList.add("clicked");
 
         // Wrong AnswerTwo
       } else if (target === AnswerTwo) {
@@ -402,58 +392,56 @@ function gameWordChange(
         target === gameWord ||
         target === rightArrow
       ) {
-        app.get(".game-wrapper").style.display = "none";
+        dom.get(".game-wrapper").style.display = "none";
         AnswerTwo.style.animation = "";
         AnswerThree.style.animation = "";
-        app.get(".right-arrow").style.backgroundImage = "";
+        dom.get(".right-arrow").style.backgroundImage = "";
       }
     });
   }
 }
 
-
 // step2: 問答題 事件處理 + 打字效果
-// HTML 
+// HTML
 // let htmlClicked = false
-app.get("#htmlP").addEventListener("click", () => {
-
-    gameWordChange(
-      "請問HTML是什麼?",
-      "標籤語言",
-      "資料庫工具",
-      "瀏覽器規範",
-      textOne,
-      13000,
-      "205px",
-      "-7px",
-      "#htmlP",
-      "#cssP",
-      "#firstLine"
-    );
+dom.get("#htmlP").addEventListener("click", () => {
+  gameWordChange(
+    "請問HTML是什麼?",
+    "標籤語言",
+    "資料庫工具",
+    "瀏覽器規範",
+    textOne,
+    13000,
+    "205px",
+    "-7px",
+    "#htmlP",
+    "#cssP",
+    "#firstLine"
+  );
 });
 
 // CSS
-  app.get("#cssP").addEventListener("click", () => {
-    if (app.get("#cssP").style.cursor === "pointer") {
-      gameWordChange(
-        "SCSS 跟 CSS 差別？",
-        "SCSS 用變數控制",
-        "SCSS 非縮排語法",
-        "不同程式語言",
-        textTwo,
-        15000,
-        "205px",
-        "171px",
-        "#cssP",
-        "#jsP",
-        "#secLine"
-      );
-    }
-  });
+dom.get("#cssP").addEventListener("click", () => {
+  if (dom.get("#cssP").style.cursor === "pointer") {
+    gameWordChange(
+      "SCSS 跟 CSS 差別？",
+      "SCSS 用變數控制",
+      "SCSS 非縮排語法",
+      "不同程式語言",
+      textTwo,
+      15000,
+      "205px",
+      "171px",
+      "#cssP",
+      "#jsP",
+      "#secLine"
+    );
+  }
+});
 
 // JS
-app.get("#jsP").addEventListener("click", () => {
-  if (app.get("#jsP").style.cursor === "pointer") {
+dom.get("#jsP").addEventListener("click", () => {
+  if (dom.get("#jsP").style.cursor === "pointer") {
     gameWordChange(
       "何者非 JS 定義變數的方式？",
       "function",
@@ -470,9 +458,9 @@ app.get("#jsP").addEventListener("click", () => {
   }
 });
 
-// RWD 
-app.get("#rwdP").addEventListener("click", () => {
-  if (app.get("#rwdP").style.cursor === "pointer") {
+// RWD
+dom.get("#rwdP").addEventListener("click", () => {
+  if (dom.get("#rwdP").style.cursor === "pointer") {
     gameWordChange(
       "如何在不同螢幕寬度下改變樣式？",
       "透過 media 操作",
@@ -489,9 +477,9 @@ app.get("#rwdP").addEventListener("click", () => {
   }
 });
 
-// jQuery 
-app.get("#jqP").addEventListener("click", () => {
-  if (app.get("#jqP").style.cursor === "pointer") {
+// jQuery
+dom.get("#jqP").addEventListener("click", () => {
+  if (dom.get("#jqP").style.cursor === "pointer") {
     gameWordChange(
       "jQuery 與 JS 之比較何者正確？",
       "JS 是一種框架",
@@ -509,8 +497,8 @@ app.get("#jqP").addEventListener("click", () => {
 });
 
 // Github
-app.get("#githubP").addEventListener("click", () => {
-  if (app.get("#githubP").style.cursor === "pointer") {
+dom.get("#githubP").addEventListener("click", () => {
+  if (dom.get("#githubP").style.cursor === "pointer") {
     gameWordChange(
       "GitHub 不能做什麼？",
       "測試程式正確性",
@@ -528,8 +516,8 @@ app.get("#githubP").addEventListener("click", () => {
 });
 
 // SCSS
-app.get("#scssP").addEventListener("click", () => {
-  if (app.get("#scssP").style.cursor === "pointer") {
+dom.get("#scssP").addEventListener("click", () => {
+  if (dom.get("#scssP").style.cursor === "pointer") {
     gameWordChange(
       "何者不屬於 CSS 預處理器？",
       "Gulp",
@@ -546,10 +534,9 @@ app.get("#scssP").addEventListener("click", () => {
   }
 });
 
-
 // bootstrap
-app.get("#bootstarpP").addEventListener("click", () => {
-  if (app.get("#bootstarpP").style.cursor === "pointer") {
+dom.get("#bootstarpP").addEventListener("click", () => {
+  if (dom.get("#bootstarpP").style.cursor === "pointer") {
     gameWordChange(
       "Bootstrap 是一種？",
       "樣式擴充元件",
@@ -567,8 +554,8 @@ app.get("#bootstarpP").addEventListener("click", () => {
 });
 
 // Webpack
-app.get("#webpackP").addEventListener("click", () => {
-  if (app.get("#webpackP").style.cursor === "pointer") {
+dom.get("#webpackP").addEventListener("click", () => {
+  if (dom.get("#webpackP").style.cursor === "pointer") {
     gameWordChange(
       "使用 Webpack 需要安裝？",
       "Node.js",
@@ -585,10 +572,9 @@ app.get("#webpackP").addEventListener("click", () => {
   }
 });
 
-
 // React
-app.get("#reactP").addEventListener("click", () => {
-  if (app.get("#reactP").style.cursor === "pointer") {
+dom.get("#reactP").addEventListener("click", () => {
+  if (dom.get("#reactP").style.cursor === "pointer") {
     gameWordChange(
       "React 有何特性？",
       "建置單頁式網站",
@@ -605,10 +591,9 @@ app.get("#reactP").addEventListener("click", () => {
   }
 });
 
-
 // Unit test
-app.get("#unitP").addEventListener("click", () => {
-  if (app.get("#unitP").style.cursor === "pointer") {
+dom.get("#unitP").addEventListener("click", () => {
+  if (dom.get("#unitP").style.cursor === "pointer") {
     gameWordChange(
       "為什麼要做單元測試？",
       "確保程式邏輯正確",

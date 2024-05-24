@@ -1,10 +1,10 @@
-import data from '../data/article.json' assert { type: 'json' };
+import data from "../data/article.json" assert { type: "json" };
 
 // 將data物件轉微陣列
-let dataArray = Object.values(data.article)
+let dataArray = Object.values(data.article);
 
 // 設計成專屬的資料結構
-let contents = dataArray.map(item => {
+let contents = dataArray.map((item) => {
   return {
     banner: item.rectangleUrl,
     bannerName: item.name,
@@ -19,14 +19,14 @@ let contents = dataArray.map(item => {
     classEmail: item.mail,
     classPhone: item.phone,
     classContent: item.content,
-  }
-})
+  };
+});
 
 // 確認 contents 資料結構
-console.log(contents)
+console.log(contents);
 
 // img index
-let imgIndex = 0
+let imgIndex = 0;
 
 // leftImg放大照片array
 const imgArray = [
@@ -35,88 +35,79 @@ const imgArray = [
   "../assets/images/cotent-img-3.jpg",
   "../assets/images/cotent-img-4.jpg",
   "../assets/images/cotent-img-5.jpg",
-]
-
+];
 
 // 抓取leftImg 5 個節點
-const leftImgs = document.querySelectorAll('.left-img')
-
+const leftImgs = document.querySelectorAll(".left-img");
 
 // 渲染content內頁
 function contentLayout() {
   // 先取得url
-  const urlParams = new URLSearchParams(window.location.search)
+  const urlParams = new URLSearchParams(window.location.search);
 
   // 先取得url之id參數 & 將字串傳為數字
-  const id = Number(urlParams.get('id'))
+  const id = Number(urlParams.get("id"));
   // console.log(id)
 
-  contents.forEach(content => {
+  contents.forEach((content) => {
     // 參數的id與資料中的id相符合 => 渲染該課程內頁
-    if(content.classId === id) {
-      app.get(".content-one-wrapper").style.backgroundImage =
-        `url(${content.banner})`;
-      app.get(".content-one-title").textContent = content.bannerName;
-      app.get('.text-topic').textContent = content.classTopic
-      app.get('.text-description').innerHTML = content.classContent
-      app.get('#row-city').textContent = content.classCity
-      app.get('#row-size').textContent = content.classType
-      app.get('#row-teach').textContent = content.teacWay
-      app.get('#row-day').textContent = `${content.totalDay}天`
-      app.get('#row-time').textContent = `${content.weekHour}小時`
-      app.get('#row-tech').textContent = content.technology
-      app.get('#row-mail').textContent = content.classEmail
-      app.get('#row-phone').textContent = content.classPhone
-
+    if (content.classId === id) {
+      dom.get(
+        ".content-one-wrapper"
+      ).style.backgroundImage = `url(${content.banner})`;
+      dom.get(".content-one-title").textContent = content.bannerName;
+      dom.get(".text-topic").textContent = content.classTopic;
+      dom.get(".text-description").innerHTML = content.classContent;
+      dom.get("#row-city").textContent = content.classCity;
+      dom.get("#row-size").textContent = content.classType;
+      dom.get("#row-teach").textContent = content.teacWay;
+      dom.get("#row-day").textContent = `${content.totalDay}天`;
+      dom.get("#row-time").textContent = `${content.weekHour}小時`;
+      dom.get("#row-tech").textContent = content.technology;
+      dom.get("#row-mail").textContent = content.classEmail;
+      dom.get("#row-phone").textContent = content.classPhone;
     }
-  })
+  });
 }
 
-
-//點擊片上一張 
+//點擊片上一張
 function preImg() {
   if (imgIndex === 0) {
-    imgIndex = 4
+    imgIndex = 4;
   } else {
-    imgIndex -= 1
+    imgIndex -= 1;
   }
 
-  app.get('.largr-img').src = imgArray[imgIndex]
+  dom.get(".largr-img").src = imgArray[imgIndex];
 }
-
 
 //點擊片下一張
 function nextImg() {
   if (imgIndex === 4) {
-    imgIndex = 0
+    imgIndex = 0;
   } else {
-    imgIndex += 1
+    imgIndex += 1;
   }
 
-  app.get('.largr-img').src = imgArray[imgIndex]
+  dom.get(".largr-img").src = imgArray[imgIndex];
 }
-
 
 // 轉換 enlarge-wrapper diplay none or block
 function changeEnlargeDisplay() {
-  if (app.get('.enlarge-wrapper').style.display === "none") {
-    app.get('.enlarge-wrapper').style.display === "block"
+  if (dom.get(".enlarge-wrapper").style.display === "none") {
+    dom.get(".enlarge-wrapper").style.display === "block";
   } else {
-    app.get('.enlarge-wrapper').style.display === "none"
+    dom.get(".enlarge-wrapper").style.display === "none";
   }
 }
 
-
-
 // 呼叫content內頁渲染之函式
-contentLayout()
+contentLayout();
 
+let leftImgHtml = "";
 
-let leftImgHtml = ""
-
-leftImgs.forEach(leftImg => {
-  leftImg.addEventListener('click', event =>{
-
+leftImgs.forEach((leftImg) => {
+  leftImg.addEventListener("click", (event) => {
     leftImgHtml += `
         <div class="enlargeBackground">
           <div class="enlarge-container">
@@ -125,39 +116,33 @@ leftImgs.forEach(leftImg => {
             <div class="large-right"></div>
           </div>
         </div>
-    `
-    app.get('.enlarge-wrapper').innerHTML = leftImgHtml
-    
-  })
-})
+    `;
+    dom.get(".enlarge-wrapper").innerHTML = leftImgHtml;
+  });
+});
 
-
-
-
-document.addEventListener('click', event => {
-  const pre = document.querySelector('.large-left')
-  const next = document.querySelector('.large-right')
-  const black = document.querySelector('.enlargeBackground')
-  const container = document.querySelector('.enlarge-container')
-  const space = event.target
+document.addEventListener("click", (event) => {
+  const pre = document.querySelector(".large-left");
+  const next = document.querySelector(".large-right");
+  const black = document.querySelector(".enlargeBackground");
+  const container = document.querySelector(".enlarge-container");
+  const space = event.target;
 
   // 點擊上一張
   if (space === pre) {
-    console.log("pre")
-    preImg()
+    console.log("pre");
+    preImg();
 
-  // 點擊下一張
+    // 點擊下一張
   } else if (space === next) {
-    console.log("next")
-    nextImg()
+    console.log("next");
+    nextImg();
 
-  // 點擊空白區域，即消失
+    // 點擊空白區域，即消失
   } else if (space === black || space === container) {
     // console.log(" black")
 
-    leftImgHtml = ""
-    app.get('.enlarge-wrapper').innerHTML = leftImgHtml
+    leftImgHtml = "";
+    dom.get(".enlarge-wrapper").innerHTML = leftImgHtml;
   }
-})
-
-
+});
