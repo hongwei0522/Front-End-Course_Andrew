@@ -1,4 +1,6 @@
-import data from "../data/article.json" assert { type: "json" };
+// import data from "../data/article.json" assert { type: "json" };
+import data from "../data/article.json" with { type: "json" };
+
 
 // 將data物件轉微陣列
 let dataArray = Object.values(data.article);
@@ -22,8 +24,6 @@ let contents = dataArray.map((item) => {
   };
 });
 
-// 確認 contents 資料結構
-console.log(contents);
 
 // img index
 let imgIndex = 0;
@@ -47,7 +47,6 @@ function contentLayout() {
 
   // 先取得url之id參數 & 將字串傳為數字
   const id = Number(urlParams.get("id"));
-  // console.log(id)
 
   contents.forEach((content) => {
     // 參數的id與資料中的id相符合 => 渲染該課程內頁
@@ -93,13 +92,13 @@ function nextImg() {
 }
 
 // 轉換 enlarge-wrapper diplay none or block
-function changeEnlargeDisplay() {
-  if (dom.get(".enlarge-wrapper").style.display === "none") {
-    dom.get(".enlarge-wrapper").style.display === "block";
-  } else {
-    dom.get(".enlarge-wrapper").style.display === "none";
-  }
-}
+// function changeEnlargeDisplay() {
+//   if (dom.get(".enlarge-wrapper").style.display === "none") {
+//     dom.get(".enlarge-wrapper").style.display === "block";
+//   } else {
+//     dom.get(".enlarge-wrapper").style.display === "none";
+//   }
+// }
 
 // 呼叫content內頁渲染之函式
 contentLayout();
@@ -130,12 +129,12 @@ document.addEventListener("click", (event) => {
 
   // 點擊上一張
   if (space === pre) {
-    console.log("pre");
+    // console.log("pre");
     preImg();
 
     // 點擊下一張
   } else if (space === next) {
-    console.log("next");
+    // console.log("next");
     nextImg();
 
     // 點擊空白區域，即消失

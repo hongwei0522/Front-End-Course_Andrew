@@ -1,10 +1,22 @@
+
+
+// 宣告 button 節點
+const profileBtn = dom.get("#profileP");
+const favoriteBtn = dom.get("#favoriteP");
+const userWrapper = dom.get(".user-wrapper");
+const userInfo = dom.get(".user-container");
+const favoriteInfo = dom.get(".favorite-container");
+
+
 const prfileImg = dom.get("#profile-img");
 const prfileName = dom.get("#profile-name");
 const prfilePhone = dom.get("#profile-phone");
 const prfileEmail = dom.get("#profile-email");
+
+
 const defaultImg =
   "https://static.vecteezy.com/system/resources/previews/018/765/138/non_2x/user-profile-icon-in-flat-style-member-avatar-illustration-on-isolated-background-human-permission-sign-business-concept-vector.jpg";
-  
+
 let memberRef = database.ref("/member");
 let data;
 let profileData;
@@ -15,18 +27,23 @@ firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // let data;
     // let profileData;
-  
+
     memberRef
       .orderByChild("mail")
       .equalTo(userState.email)
       .once("value")
       .then((snapshot) => {
-        data = snapshot.val();
+        let prfileImg = dom.get("#profile-img");
+        let prfileName = dom.get("#profile-name");
+        let prfilePhone = dom.get("#profile-phone");
+        let prfileEmail = dom.get("#profile-email");
 
+        data = snapshot.val();
         const postKey = Object.keys(data)[0]; // 獲取第一個 key
         profileData = data[postKey];
 
         if (!data) {
+
           const loginUser = user.multiFactor.user;
           const displayName = loginUser.displayName || "";
           const email = loginUser.email || "";
@@ -37,8 +54,8 @@ firebase.auth().onAuthStateChanged(function (user) {
           prfileName.value = displayName;
           prfileEmail.value = email;
           prfilePhone.value = phoneNumber;
-
         } else {
+
           const name = profileData.name || "";
           const email = profileData.mail || "";
           const phoneNumber = profileData.phone || "";
@@ -70,7 +87,7 @@ function loginoutAlertBoxClose() {
           .auth()
           .signOut()
           .then(() => {
-            console.log("登出成功");
+            // console.log("登出成功");
             window.location.href = "index.html";
           })
           .catch((error) => {
@@ -88,11 +105,6 @@ loginOutP.addEventListener("click", () => {
 });
 
 // 觸及修改事件
-const deviceBtn = dom.get("#device-btn");
-const deviceGroup = dom.get(".device-group");
-const confirmBtn = dom.get("#confirm-btn");
-const cancelBtn = dom.get("#cancel-btn");
-
 function updateUserData() {
   let data;
   memberRef
@@ -118,13 +130,19 @@ function updateUserData() {
         .database()
         .ref("member/" + postKey)
         .set(newUserDate);
-        console.log("已更新資料");
     });
 }
 
 function getUserData() {
   firebase.auth().onAuthStateChanged(function (user) {
+
     if (user) {
+
+      let prfileImg = dom.get("#profile-img");
+      let prfileName = dom.get("#profile-name");
+      let prfilePhone = dom.get("#profile-phone");
+      let prfileEmail = dom.get("#profile-email");
+
       const displayName = profileData.name || "";
       const email = profileData.mail || "";
       const phoneNumber = profileData.phone || "";
@@ -138,47 +156,133 @@ function getUserData() {
   });
 }
 
+const confirmBtn = dom.get("#confirm-btn");
+const cancelBtn = dom.get("#cancel-btn");
+const deviceBtn = dom.get("#device-btn");
+const deviceGroup = dom.get(".device-group");
+
+
 // 點擊修改按鈕後
-deviceBtn.addEventListener("click", () => {
-  console.log("deviceBtn", deviceBtn);
-  prfileName.disabled = false;
-  prfilePhone.disabled = false;
-  prfileName.style.backgroundColor = "white";
-  prfilePhone.style.backgroundColor = "white";
-  prfileName.style.border = "1px solid rgba(230, 230, 230, 0.7)";
-  prfilePhone.style.border = "1px solid rgba(230, 230, 230, 0.7)";
-  deviceBtn.style.display = "none";
-  deviceGroup.style.display = "flex";
-});
+if (deviceBtn) {
+  deviceBtn.addEventListener("click", () => {
+    prfileName.disabled = false;
+    prfilePhone.disabled = false;
+    prfileName.style.backgroundColor = "white";
+    prfilePhone.style.backgroundColor = "white";
+    prfileName.style.border = "1px solid rgba(230, 230, 230, 0.7)";
+    prfilePhone.style.border = "1px solid rgba(230, 230, 230, 0.7)";
+    deviceBtn.style.display = "none";
+    deviceGroup.style.display = "flex";
+  });
+}
 
 // 點擊確認按鈕後
-confirmBtn.addEventListener("click", () => {
-  console.log("觸發 confirmBtn");
-  prfileName.disabled = true;
-  prfilePhone.disabled = true;
-  prfileName.style.backgroundColor = "rgba(230, 230, 230, 0)";
-  prfilePhone.style.backgroundColor = "rgba(230, 230, 230, 0)";
-  prfileName.style.border = "0px solid rgba(230, 230, 230, 0.7)";
-  prfilePhone.style.border = "0px solid rgba(230, 230, 230, 0.7)";
-  deviceBtn.style.display = "block";
-  deviceGroup.style.display = "none";
+if (confirmBtn) {
+  confirmBtn.addEventListener("click", () => {
+    prfileName.disabled = true;
+    prfilePhone.disabled = true;
+    prfileName.style.backgroundColor = "rgba(230, 230, 230, 0)";
+    prfilePhone.style.backgroundColor = "rgba(230, 230, 230, 0)";
+    prfileName.style.border = "0px solid rgba(230, 230, 230, 0.7)";
+    prfilePhone.style.border = "0px solid rgba(230, 230, 230, 0.7)";
+    deviceBtn.style.display = "block";
+    deviceGroup.style.display = "none";
 
-  // 更新用者資料
-  updateUserData();
-});
+    // 更新用者資料
+    updateUserData();
+  });
+}
 
 // 點擊取消按鈕後
-cancelBtn.addEventListener("click", () => {
-  console.log("觸發 cancelBtn");
-  prfileName.disabled = true;
-  prfilePhone.disabled = true;
-  prfileName.style.backgroundColor = "rgba(230, 230, 230, 0)";
-  prfilePhone.style.backgroundColor = "rgba(230, 230, 230, 0)";
-  prfileName.style.border = "0px solid rgba(230, 230, 230, 0.7)";
-  prfilePhone.style.border = "0px solid rgba(230, 230, 230, 0.7)";
-  deviceBtn.style.display = "block";
-  deviceGroup.style.display = "none";
+if (cancelBtn) {
+  cancelBtn.addEventListener("click", () => {
+    prfileName.disabled = true;
+    prfilePhone.disabled = true;
+    prfileName.style.backgroundColor = "rgba(230, 230, 230, 0)";
+    prfilePhone.style.backgroundColor = "rgba(230, 230, 230, 0)";
+    prfileName.style.border = "0px solid rgba(230, 230, 230, 0.7)";
+    prfilePhone.style.border = "0px solid rgba(230, 230, 230, 0.7)";
+    deviceBtn.style.display = "block";
+    deviceGroup.style.display = "none";
 
-  // 獲得使用者未修改資料
+    // 獲得使用者未修改資料
+    getUserData();
+  });
+}
+
+// 點擊個人資料
+profileBtn.addEventListener("click", () => {
+  favoriteInfo.style.display = "none";
+  userInfo.style.display = "flex";
+
   getUserData();
 });
+
+
+// favorite data 
+import datas from "../data/article.json" with { type: "json" };
+
+let dataArrays = Object.values(datas.article);
+let favoriteDatas = dataArrays.map((item) => {
+  return {
+    id: item.creatTime,
+    img: item.squareUrl,
+    name: item.name,
+  };
+});
+
+// 點擊收藏
+favoriteBtn.addEventListener("click", () => {
+  userInfo.style.display = "none";
+  favoriteInfo.style.display = "flex"
+
+  displayFavoriteCard()
+
+});
+
+// 渲染收藏列表 
+function displayFavoriteCard() {
+  favoriteInfo.innerHTML = '';
+  const favoriteList = JSON.parse(localStorage.getItem('favoriteList')) || []
+
+  //  篩選出 favoriteDatas & favoriteList 有共同 id 的值
+  const favoriteCards = favoriteDatas.filter( favoriteData => {
+    return favoriteList.some( favoriteListId => favoriteData.id === Number(favoriteListId))
+  })
+
+  favoriteCards.forEach(card => {
+    const favoriteCardDiv = document.createElement("div")
+    favoriteCardDiv.setAttribute("class", "favorite-card")
+    favoriteCardDiv.innerHTML = `
+      <a href="./content.html?id=${card.id}">
+        <img class="favorite-img" src="${card.img}" alt="收藏課程">
+      </a>
+      <p class="favorite-title">${card.name}</p>
+      <img class="favorite-delete" data-id=${card.id} src="https://frankyeah.github.io/Front-Enter/images/rubbish-bin.svg" alt="刪除 icon">
+    `
+    favoriteInfo.appendChild(favoriteCardDiv);
+  })
+}
+
+// 刪除收藏列表-點擊事件處理
+  document.body.addEventListener("click", (event) => {
+    const target =event.target
+    const id = target.dataset.id
+
+    if(target.classList.contains('favorite-delete')) {
+
+      let favoriteList = JSON.parse(localStorage.getItem('favoriteList')) || []
+      const findId = favoriteList.some(favoriteId => favoriteId === id)
+
+      if (findId) {
+        console.log("findId", findId)
+        favoriteList = favoriteList.filter(favoriteId => favoriteId !== id);
+      }
+
+      localStorage.setItem('favoriteList', JSON.stringify(favoriteList))
+      displayFavoriteCard()
+    }
+  })
+
+
+

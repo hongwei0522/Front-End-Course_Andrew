@@ -40,6 +40,7 @@ main {
 
       .user-group {
         width: 200px;
+        height: 400px;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -65,115 +66,158 @@ main {
         }
       }
 
-      .user-input {
-        width: 600px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        // 768px
-        @include pad {
-          width: 0px;
-          width: 150px;
-          margin: 0 auto;
-          order: -1;
-        }
-
-        // 576px
-        @include minipad {
-          font-size: 14px;
-        }
-
-        .user-avavtar {
-          width: 150px;
-          height: 150px;
-          margin-left: 25px;
+      .user-wrapper {
+        .user-container {
+          width: 600px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
 
           // 768px
           @include pad {
-            margin-left: 0px;
+            width: 0px;
+            width: 150px;
+            margin: 0 auto;
+            order: -1;
           }
 
           // 576px
           @include minipad {
-            width: 80px;
-            height: 80px;
+            font-size: 14px;
           }
 
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-          }
-        }
+          .user-avavtar {
+            width: 150px;
+            height: 150px;
+            margin-left: 25px;
 
-        .user-form {
-          display: flex;
-          align-items: center;
-          flex-direction: column;
-          margin-top: 30px;
-
-          .input-group {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 60px;
-            margin-top: -10px;
-            font-size: 16px;
-
-            label {
-              color: rgb(158, 158, 158);
-              width: 100px;
-              text-align: center;
-              font-size: 16px;
-              font-weight: 600;
-              letter-spacing: 3px;
-
-              // 576px
-              @include minipad {
-                width: 50px;
-              }
+            // 768px
+            @include pad {
+              margin-left: 0px;
             }
 
-            input {
-              width: 320px;
-              border-radius: 5px;
-              height: 33px;
-              padding-left: 5px;
-              margin-left: 32px;
-              color: $second-gray;
-              font-size: 16px;
-              letter-spacing: 3px;
-              border: rgba(230, 230, 230, 0.7);
-              background-color: rgba(230, 230, 230, 0);
+            // 576px
+            @include minipad {
+              width: 80px;
+              height: 80px;
+            }
 
-              &::placeholder {
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+          }
+
+          .user-form {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 30px;
+
+            .input-group {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 60px;
+              margin-top: -10px;
+              font-size: 16px;
+
+              label {
+                color: rgb(158, 158, 158);
+                width: 100px;
+                text-align: center;
+                font-size: 16px;
+                font-weight: 600;
+                letter-spacing: 3px;
+
+                // 576px
+                @include minipad {
+                  width: 50px;
+                }
+              }
+
+              input {
+                width: 320px;
+                height: 33px;
+                border-radius: 5px;
+                padding-left: 5px;
+                margin-left: 32px;
                 color: $second-gray;
                 font-size: 16px;
                 letter-spacing: 3px;
-              }
+                border: rgba(230, 230, 230, 0.7);
+                background-color: rgba(230, 230, 230, 0);
 
-              // 576px
-              @include minipad {
-                width: 250px;
-                margin-left: 0px;
+                &::placeholder {
+                  color: $second-gray;
+                  font-size: 16px;
+                  line-height: 33px; /* ★ */
+                  letter-spacing: 3px;
+                }
+
+                // 576px
+                @include minipad {
+                  width: 250px;
+                  margin-left: 0px;
+                }
               }
             }
-          }
 
-          .change-data {
-            @include profileBtn;
-          }
-          .device-group {
-            display: none;
-            text-align: center;
-            
             .change-data {
               @include profileBtn;
             }
+            .device-group {
+              display: none;
+              text-align: center;
+
+              .change-data {
+                @include profileBtn;
+              }
+            }
           }
+        }
+        .favorite-container {
+          display: none;
+          justify-content: start;
+          gap: 30px;
+          flex-wrap: wrap;
+          width: 600px;
+
+          .favorite-card {
+            width: 180px;
+            height: 240px;
+            text-align: center;
+
+            .favorite-img {
+              width: 160px;
+              height: 160px;
+              border-radius: 5px;
+              object-fit: cover;
+              cursor: pointer;
+              transform: scale(1.1);
+              transition: all 0.6s;
+
+              &:hover {
+                transform: scale(1.2, 1.2);
+              }
+            }
+
+            .favorite-title {
+              height: 20px;
+              line-height: 20px;
+              color: $primary-blue;
+            }
+
+            .favorite-delete {
+              width: 20px;
+              height: 20px;
+              cursor: pointer;
+            }
+          }
+          // outline: 1px solid tomato;
         }
       }
     }

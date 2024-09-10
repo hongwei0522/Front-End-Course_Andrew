@@ -626,7 +626,7 @@ header > nav .search-part #Search:hover {
 }
 .search-section .white-background > p {
   color: #1ad8d3;
-  font-size: 18px;
+  font-size: 20px;
   text-align: center;
   letter-spacing: 2px;
 }
@@ -637,10 +637,11 @@ header > nav .search-part #Search:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 15px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   border-radius: 20px;
   background-color: #fff;
 }
@@ -650,13 +651,32 @@ header > nav .search-part #Search:hover {
   }
 }
 .search-section .white-background > form > input {
+  font-size: 16px;
   width: 90%;
   margin-left: 1px;
   border-style: none;
-  padding: 10px;
+  padding: 10px 5px;
+  line-height: normal;
 }
-.search-section .white-background > form > input:focus {
-  padding: 10px;
+.search-section .white-background > form > input::-webkit-input-placeholder {
+  font-size: 16px;
+  letter-spacing: 3.5px;
+}
+.search-section .white-background > form > input::-moz-placeholder {
+  font-size: 16px;
+  letter-spacing: 3.5px;
+}
+.search-section .white-background > form > input:-ms-input-placeholder {
+  font-size: 16px;
+  letter-spacing: 3.5px;
+}
+.search-section .white-background > form > input::-ms-input-placeholder {
+  font-size: 16px;
+  letter-spacing: 3.5px;
+}
+.search-section .white-background > form > input::placeholder {
+  font-size: 16px;
+  letter-spacing: 3.5px;
 }
 .search-section .white-background > form > img {
   width: 25px;
@@ -1288,11 +1308,26 @@ main .card-wrapper .card-container .card {
   padding: 25px 15px;
   margin: 10px;
 }
+main .card-wrapper .card-container .card .favorite-icon {
+  color: rgb(26, 216, 211);
+  text-align: end;
+  font-size: 18px;
+  padding-right: 15px;
+  cursor: pointer;
+}
 main .card-wrapper .card-container .card .class-item {
   display: block;
   width: 90%;
   margin: 0 auto;
   color: #3f3a3a;
+}
+main .card-wrapper .card-container .card .class-item .save-part {
+  text-align: end;
+}
+main .card-wrapper .card-container .card .class-item .save-part .save-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 main .card-wrapper .card-container .card .class-item .city-part {
   width: 30%;
@@ -1305,6 +1340,7 @@ main .card-wrapper .card-container .card .class-item .city-part {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin-top: 20px;
 }
 main .card-wrapper .card-container .card .class-item .city-part .location-box {
   width: 17.14px;
@@ -1374,6 +1410,10 @@ main .card-wrapper .card-container .card .class-item .read-more .more-box {
 main .card-wrapper .card-container .card .class-item .read-more .more-box .more-icon {
   max-width: 100%;
   max-height: 100%;
+}
+main .card-wrapper .card-container .search-error {
+  font-size: 30px;
+  letter-spacing: 2px;
 }
 
 @media (max-width: 1022px) {
@@ -2350,6 +2390,7 @@ main .profile-two-wrapper .profile-two-container {
 }
 main .profile-two-wrapper .profile-two-container .user-group {
   width: 200px;
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2409,7 +2450,7 @@ main .profile-two-wrapper .profile-two-container .user-group .btn-user:hover {
     margin-left: 0px;
   }
 }
-main .profile-two-wrapper .profile-two-container .user-input {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container {
   width: 600px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2426,7 +2467,7 @@ main .profile-two-wrapper .profile-two-container .user-input {
           flex-direction: column;
 }
 @media (max-width: 768px) {
-  main .profile-two-wrapper .profile-two-container .user-input {
+  main .profile-two-wrapper .profile-two-container .user-wrapper .user-container {
     width: 0px;
     width: 150px;
     margin: 0 auto;
@@ -2436,34 +2477,34 @@ main .profile-two-wrapper .profile-two-container .user-input {
   }
 }
 @media (max-width: 576px) {
-  main .profile-two-wrapper .profile-two-container .user-input {
+  main .profile-two-wrapper .profile-two-container .user-wrapper .user-container {
     font-size: 14px;
   }
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-avavtar {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-avavtar {
   width: 150px;
   height: 150px;
   margin-left: 25px;
 }
 @media (max-width: 768px) {
-  main .profile-two-wrapper .profile-two-container .user-input .user-avavtar {
+  main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-avavtar {
     margin-left: 0px;
   }
 }
 @media (max-width: 576px) {
-  main .profile-two-wrapper .profile-two-container .user-input .user-avavtar {
+  main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-avavtar {
     width: 80px;
     height: 80px;
   }
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-avavtar img {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-avavtar img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 50%;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2476,7 +2517,7 @@ main .profile-two-wrapper .profile-two-container .user-input .user-form {
           flex-direction: column;
   margin-top: 30px;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2490,7 +2531,7 @@ main .profile-two-wrapper .profile-two-container .user-input .user-form .input-g
   margin-top: -10px;
   font-size: 16px;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group label {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group label {
   color: rgb(158, 158, 158);
   width: 100px;
   text-align: center;
@@ -2499,14 +2540,14 @@ main .profile-two-wrapper .profile-two-container .user-input .user-form .input-g
   letter-spacing: 3px;
 }
 @media (max-width: 576px) {
-  main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group label {
+  main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group label {
     width: 50px;
   }
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group input {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group input {
   width: 320px;
-  border-radius: 5px;
   height: 33px;
+  border-radius: 5px;
   padding-left: 5px;
   margin-left: 32px;
   color: rgb(128, 128, 128);
@@ -2515,38 +2556,43 @@ main .profile-two-wrapper .profile-two-container .user-input .user-form .input-g
   border: rgba(230, 230, 230, 0.7);
   background-color: rgba(230, 230, 230, 0);
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group input::-webkit-input-placeholder {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group input::-webkit-input-placeholder {
   color: rgb(128, 128, 128);
   font-size: 16px;
+  line-height: 33px; /* ★ */
   letter-spacing: 3px;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group input::-moz-placeholder {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group input::-moz-placeholder {
   color: rgb(128, 128, 128);
   font-size: 16px;
+  line-height: 33px; /* ★ */
   letter-spacing: 3px;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group input:-ms-input-placeholder {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group input:-ms-input-placeholder {
   color: rgb(128, 128, 128);
   font-size: 16px;
+  line-height: 33px; /* ★ */
   letter-spacing: 3px;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group input::-ms-input-placeholder {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group input::-ms-input-placeholder {
   color: rgb(128, 128, 128);
   font-size: 16px;
+  line-height: 33px; /* ★ */
   letter-spacing: 3px;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group input::placeholder {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group input::placeholder {
   color: rgb(128, 128, 128);
   font-size: 16px;
+  line-height: 33px; /* ★ */
   letter-spacing: 3px;
 }
 @media (max-width: 576px) {
-  main .profile-two-wrapper .profile-two-container .user-input .user-form .input-group input {
+  main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .input-group input {
     width: 250px;
     margin-left: 0px;
   }
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .change-data {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .change-data {
   width: 105px;
   margin-top: 30px;
   margin-left: 25px;
@@ -2559,20 +2605,20 @@ main .profile-two-wrapper .profile-two-container .user-input .user-form .change-
   cursor: pointer;
   letter-spacing: 3px;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .change-data:hover {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .change-data:hover {
   color: rgb(26, 216, 211);
   background-color: white;
 }
 @media (max-width: 768px) {
-  main .profile-two-wrapper .profile-two-container .user-input .user-form .change-data {
+  main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .change-data {
     margin-left: 0px;
   }
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .device-group {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .device-group {
   display: none;
   text-align: center;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .device-group .change-data {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .device-group .change-data {
   width: 105px;
   margin-top: 30px;
   margin-left: 25px;
@@ -2585,12 +2631,53 @@ main .profile-two-wrapper .profile-two-container .user-input .user-form .device-
   cursor: pointer;
   letter-spacing: 3px;
 }
-main .profile-two-wrapper .profile-two-container .user-input .user-form .device-group .change-data:hover {
+main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .device-group .change-data:hover {
   color: rgb(26, 216, 211);
   background-color: white;
 }
 @media (max-width: 768px) {
-  main .profile-two-wrapper .profile-two-container .user-input .user-form .device-group .change-data {
+  main .profile-two-wrapper .profile-two-container .user-wrapper .user-container .user-form .device-group .change-data {
     margin-left: 0px;
   }
+}
+main .profile-two-wrapper .profile-two-container .user-wrapper .favorite-container {
+  display: none;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  gap: 30px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 600px;
+}
+main .profile-two-wrapper .profile-two-container .user-wrapper .favorite-container .favorite-card {
+  width: 180px;
+  height: 240px;
+  text-align: center;
+}
+main .profile-two-wrapper .profile-two-container .user-wrapper .favorite-container .favorite-card .favorite-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 5px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+main .profile-two-wrapper .profile-two-container .user-wrapper .favorite-container .favorite-card .favorite-img:hover {
+  -webkit-transform: scale(1.2, 1.2);
+          transform: scale(1.2, 1.2);
+}
+main .profile-two-wrapper .profile-two-container .user-wrapper .favorite-container .favorite-card .favorite-title {
+  height: 20px;
+  line-height: 20px;
+  color: rgb(26, 216, 211);
+}
+main .profile-two-wrapper .profile-two-container .user-wrapper .favorite-container .favorite-card .favorite-delete {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }/*# sourceMappingURL=all.css.map */

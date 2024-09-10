@@ -145,9 +145,11 @@ signupBtn.addEventListener("click", (e) => {
       if (error.code === "auth/invalid-email") {
         alertBoxOpen("電子郵件格式不正確，請重新輸入");
         alertBoxClose();
+
       } else if (error.code === "auth/email-already-in-use") {
         alertBoxOpen("電子郵件格式已註冊過，請重新輸入");
         alertBoxClose();
+        
       } else if (error.code === "auth/weak-password") {
         alertBoxOpen("密碼強度不夠，請輸入至少六碼密碼");
         alertBoxClose();
@@ -212,15 +214,68 @@ gamilBtn.addEventListener("click", (e) => {
     });
 });
 
+
 // Search
 // Search display none or block function
+let searchOpen = false;
 function searchBlock() {
-  let element = dom.get(".search-section");
-  element.classList.toggle("d-block");
+  // searbar 未開啟狀態
+  if (!searchOpen) {
+    searchOpen = true;
+    searchSection.classList.add("d-block");
+    searchInput.placeholder = "依課程機構、教學風格及地區搜尋";
+    searchInput.value = "";
+
+  } else {
+    // searbar 已開啟狀態
+    searchOpen = false;
+    searchSection.classList.remove("d-block");
+  }
 }
 
 // Click search Diaplay none or block
-dom.get("#Search").addEventListener("click", searchBlock);
+dom.get("#Search").addEventListener("click", () => {
+  searchBlock();
+});
+
+const searchSection = dom.get(".search-section");
+const searchInput = dom.get("#search-input");
+const searchClick = dom.get("#searchClcik");
+
+// 點擊 search bar 事件
+searchClick.addEventListener("click", () => {
+  const searchInputValue = searchInput.value.toLowerCase().trim();
+
+  if (!searchInputValue) {
+    // 請輸入文字提示
+    alertBoxOpen("請輸入搜尋關鍵字");
+    alertBoxClose();
+    return;
+  }
+
+  // 跳轉頁面
+  location.href = "./article.html?id=" + searchInputValue;
+});
+
+//search input enter 事件
+searchInput.addEventListener("keydown", (e) => {
+  // e.preventDefault();
+  const searchInputValue = searchInput.value.trim();
+
+  if (e.key === 'Enter') {
+    e.preventDefault();
+
+    if (!searchInputValue) {
+      // 請輸入文字提示
+      alertBoxOpen("請輸入搜尋關鍵字");
+      alertBoxClose();
+      return;
+    }
+
+    // 跳轉頁面
+    location.href = "./article.html?id=" + searchInputValue;
+  }
+});
 
 // back to top
 dom.get("#top").addEventListener("click", function () {
