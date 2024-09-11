@@ -1,4 +1,3 @@
-
 // header
 header {
   display: flex;
@@ -19,7 +18,7 @@ header {
     height: 65px;
     margin-left: 60px;
     transition: all 0.6s ease-in;
-    
+
     &:hover {
       transform: scale(1.2, 1.2);
       opacity: 0.5;
@@ -46,20 +45,19 @@ header {
       margin-right: 10px;
     }
 
-  > div {
+    > div {
       letter-spacing: 3px;
       line-height: 92px;
       padding-bottom: 9px;
 
       .nav-item {
         color: inherit;
-      
+
         &:hover {
           cursor: pointer;
           color: powderblue;
         }
       }
-
     }
 
     .search-part {
@@ -100,7 +98,7 @@ header {
 
     > p {
       color: #1ad8d3;
-      font-size: 18px;
+      font-size: 20px;
       text-align: center;
       letter-spacing: 2px;
     }
@@ -110,8 +108,9 @@ header {
       margin: 0 auto;
       padding: 20px 15px;
       display: flex;
-      gap: 15px;
+      // gap: 15px;
       align-items: center;
+      justify-content: space-around;
       border-radius: 20px;
       background-color: #fff;
 
@@ -120,15 +119,17 @@ header {
         width: 90%;
       }
 
-
       > input {
+        font-size: 16px;
         width: 90%;
         margin-left: 1px;
         border-style: none;
-        padding: 10px;
+        padding: 10px 5px;
+        line-height: normal;
 
-        &:focus {
-          padding: 10px;
+        &::placeholder {
+          font-size: 16px;
+          letter-spacing: 3.5px;
         }
       }
 
@@ -147,14 +148,12 @@ header {
     background-color: #000;
     opacity: 0.8;
   }
-
 }
 
 //  search-section toggle diplay none
 .d-block {
   display: block;
 }
-
 
 // section
 .front-secton {
@@ -186,7 +185,7 @@ header {
         font-size: 32px;
       }
     }
-    
+
     .title-two {
       font-size: 28px;
       letter-spacing: 10px;
@@ -196,8 +195,7 @@ header {
         font-size: 22px;
       }
     }
-    
-    
+
     #arrow-bottom {
       background-image: url(https://frankyeah.github.io/Front-Enter/images/next.svg);
       background-size: cover;
@@ -212,7 +210,6 @@ header {
     }
   }
 }
-
 
 // aside
 #my-aside {
@@ -239,57 +236,61 @@ header {
 // main
 main {
   > .learn-test {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 150px 0;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-      background-image: url(https://frankyeah.github.io/Front-Enter/images/second-img.jpg);
-      background-color: rgba(128, 128, 128, 0.8);
-      background-blend-mode: multiply;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position-x: center;
-      background-position-y: bottom;
-      background-attachment: fixed;
-      transition: all 0.6s linear;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 150px 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
+    background-image: url(https://frankyeah.github.io/Front-Enter/images/second-img.jpg);
+    background-color: rgba(128, 128, 128, 0.8);
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: bottom;
+    background-attachment: fixed;
+    transition: all 0.6s linear;
 
-      // 螢幕尺寸768px
-      @include pad {
-        filter: brightness(100%)
-      }
+    // 螢幕尺寸768px
+    @include pad {
+      filter: brightness(100%);
+    }
+
+    &:hover {
+      padding: 200px 0;
+    }
+
+    > p {
+      font-size: 18px;
+      color: white;
+      line-height: 3px;
+      letter-spacing: 3px;
+    }
+
+    #test-go {
+      width: 128px;
+      padding: 7px 23px;
+      margin-top: 30px;
+      color: $primary-blue;
+      line-height: 18px;
+      text-align: center;
+      letter-spacing: 0px;
+      cursor: pointer;
+      border-radius: 5px;
+      border: 1px solid $primary-blue;
+      transition: transform 0.6s linear;
 
       &:hover {
-        padding: 200px 0 ;
+        transform: scale(1.2, 1.2);
       }
-
-      > p {
-        font-size: 18px;
-        color: white;
-        line-height: 3px;
-        letter-spacing: 3px;
-      }
-
-      #test-go {
-        width: 128px;
-        padding: 7px 23px;
-        margin-top: 30px;
-        color: $primary-blue;
-        line-height: 18px;
-        text-align: center;
-        letter-spacing: 0px;
-        cursor: pointer;
-        border-radius: 5px;
-        border: 1px solid $primary-blue;
-        transition: transform 0.6s linear;
-
-        &:hover {
-          transform: scale(1.2, 1.2);
-        }
-      }
+    }
   }
 
   > .classroom-choose {
@@ -311,7 +312,7 @@ main {
 
     // 螢幕尺寸768px
     @include pad {
-      filter: brightness(100%)
+      filter: brightness(100%);
     }
 
     &:hover {
@@ -337,11 +338,11 @@ main {
       transition: transform 0.6s linear;
 
       &:hover {
-          transform: scale(1.2, 1.2);
+        transform: scale(1.2, 1.2);
       }
     }
   }
- 
+
   > div.third-pic {
     display: flex;
     flex-direction: row;
@@ -404,7 +405,7 @@ main {
         width: 15%;
         margin: auto;
       }
-      
+
       .inside-p {
         line-height: 30px;
         margin-top: 35px;
@@ -416,7 +417,7 @@ main {
           line-height: 25px;
         }
       }
-      
+
       .inside-button {
         cursor: pointer;
         border-radius: 5px;
@@ -429,7 +430,7 @@ main {
         // 螢幕尺寸768px
         @include pad {
           font-size: 16px;
-           margin-top: 0px;
+          margin-top: 0px;
         }
 
         a {
@@ -525,8 +526,7 @@ main {
   }
 }
 
-
-//動畫區塊 
+//動畫區塊
 //Top
 .top {
   padding: 70px;
@@ -548,7 +548,6 @@ main {
     }
   }
 }
-
 
 /* Footer */
 footer {
@@ -604,7 +603,7 @@ footer {
     word-spacing: 20px;
     color: $primary-blue;
   }
-  
+
   .e-word::before {
     content: "E";
     color: $primary-blue;
@@ -641,4 +640,3 @@ footer {
     }
   }
 }
-

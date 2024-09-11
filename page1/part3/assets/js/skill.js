@@ -327,10 +327,7 @@ function gameWordChange(
       const target = e.target;
       e.stopPropagation();
 
-      // console.log(target);
-
       if (target.textContent === gameOne) {
-        // console.log("進入問答一");
 
         // 步驟 a 打勾icon
         gameRightAnswer(AnswerOne);
