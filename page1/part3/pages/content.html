@@ -26,7 +26,7 @@
           <a class="nav-item" href="./skill.html">技能樹</a>
         </div>
         <div>
-          <p id="loginClick" class="nav-item" >登入</p>
+          <p id="loginClick" class="nav-item">登入</p>
         </div>
         <div class="search-part">
           <img id="Search" src="../assets/images/FE_search_green.png" />
@@ -39,9 +39,8 @@
       <div class="white-background">
         <p>SEARCH</p>
         <form action="" class="search-part">
-          <input type="search" />
-          <img src="../assets/images/microphone.svg" alt="microphone" />
-          <img src="../assets/images/FE_search_green.png" alt="searchbar" />
+          <input  id="search-input" type="search" />
+          <img id="searchClcik" src="../assets/images/FE_search_green.png" alt="searchbar" />
         </form>
       </div>
       <div class="black-ground"></div>
@@ -88,85 +87,85 @@
       <!-- content -->
       <div class="content-container">
         <div class="img-section">
-        <div class="left-box-one">
-          <img
-            src="../assets/images/cotent-img-1.jpg"
-            alt=""
-            class="left-img"
-          />
+          <div class="left-box-one">
+            <img
+              src="../assets/images/cotent-img-1.jpg"
+              alt=""
+              class="left-img"
+            />
+          </div>
+          <div class="left-box">
+            <img
+              src="../assets/images/cotent-img-2.jpg"
+              alt=""
+              class="left-img"
+            />
+          </div>
+          <div class="left-box">
+            <img
+              src="../assets/images/cotent-img-3.jpg"
+              alt=""
+              class="left-img"
+            />
+          </div>
+          <div class="left-box">
+            <img
+              src="../assets/images/cotent-img-4.jpg"
+              alt=""
+              class="left-img"
+            />
+          </div>
+          <div class="left-box">
+            <img
+              src="../assets/images/cotent-img-5.jpg"
+              alt=""
+              class="left-img"
+            />
+          </div>
         </div>
-        <div class="left-box">
-          <img
-            src="../assets/images/cotent-img-2.jpg"
-            alt=""
-            class="left-img"
-          />
-        </div>
-        <div class="left-box">
-          <img
-            src="../assets/images/cotent-img-3.jpg"
-            alt=""
-            class="left-img"
-          />
-        </div>
-        <div class="left-box">
-          <img
-            src="../assets/images/cotent-img-4.jpg"
-            alt=""
-            class="left-img"
-          />
-        </div>
-        <div class="left-box">
-          <img
-            src="../assets/images/cotent-img-5.jpg"
-            alt=""
-            class="left-img"
-          />
-        </div>
-      </div>
-      <div class="text-section">
-        <p class="text-topic"></p>
-        <p class="text-description"></p>
-        <div class="text-content">
-          <div class="text-content-container">
-            <p class="content-word">整理</p>
-            <div class="row-group">
-              <div class="row">
-                <div class="row-name">城市</div>
-                <div class="row-value" id="row-city"></div>
-              </div>
-              <div class="row">
-                <div class="row-name">班制</div>
-                <div class="row-value" id="row-size"></div>
-              </div>
-              <div class="row">
-                <div class="row-name">教法</div>
-                <div class="row-value" id="row-teach"></div>
-              </div>
-              <div class="row">
-                <div class="row-name">天數</div>
-                <div class="row-value" id="row-day"></div>
-              </div>
-              <div class="row">
-                <div class="row-name">週時</div>
-                <div class="row-value" id="row-time"></div>
-              </div>
-              <div class="row">
-                <div class="row-name">技術</div>
-                <div class="row-value" id="row-tech"></div>
-              </div>
-              <div class="row">
-                <div class="row-name">信箱</div>
-                <div class="row-value" id="row-mail"></div>
-              </div>
-              <div class="row">
-                <div class="row-name">電話</div>
-                <div class="row-value" id="row-phone"></div>
+        <div class="text-section">
+          <p class="text-topic"></p>
+          <p class="text-description"></p>
+          <div class="text-content">
+            <div class="text-content-container">
+              <p class="content-word">整理</p>
+              <div class="row-group">
+                <div class="row">
+                  <div class="row-name">城市</div>
+                  <div class="row-value" id="row-city"></div>
+                </div>
+                <div class="row">
+                  <div class="row-name">班制</div>
+                  <div class="row-value" id="row-size"></div>
+                </div>
+                <div class="row">
+                  <div class="row-name">教法</div>
+                  <div class="row-value" id="row-teach"></div>
+                </div>
+                <div class="row">
+                  <div class="row-name">天數</div>
+                  <div class="row-value" id="row-day"></div>
+                </div>
+                <div class="row">
+                  <div class="row-name">週時</div>
+                  <div class="row-value" id="row-time"></div>
+                </div>
+                <div class="row">
+                  <div class="row-name">技術</div>
+                  <div class="row-value" id="row-tech"></div>
+                </div>
+                <div class="row">
+                  <div class="row-name">信箱</div>
+                  <div class="row-value" id="row-mail"></div>
+                </div>
+                <div class="row">
+                  <div class="row-name">電話</div>
+                  <div class="row-value" id="row-phone"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </section>
 
@@ -182,8 +181,6 @@
     <div id="loadingAnimation" class="loading-animation">
       <div id="loadingImg" class="loading-img"></div>
     </div>
-
-    
 
     <!-- footer -->
     <footer>
@@ -203,7 +200,7 @@
       </div>
     </footer>
 
-        <!-- 登入區塊 -->
+    <!-- 登入區塊 -->
     <div class="login-wrapper">
       <div class="login-container">
         <div class="login-box">
@@ -211,33 +208,55 @@
         </div>
         <form>
           <div class="login-inputs">
-            <input type="text" placeholder="Email" />
-            <input type="text" placeholder="******" />
+            <input id="email" type="email" placeholder="Email" required>
+            <input id="password" type="password" placeholder="******" required>
           </div>
           <p class="forget-password">忘記密碼?</p>
           <div class="login-btns">
             <div class="btn-group">
-              <button class="login-btn">註冊</button>
-              <button class="login-btn">登入</button>
+              <button  type="button" id="signup" class="login-btn">
+                註冊
+              </button>
+              <button type="button" id="login" class="login-btn">
+                登入
+              </button>
             </div>
-            <button class="gmail-btn">Log In With Gmail</button>
+            <button type="button" id="gmail-btn">
+              Log In With Gmail
+            </button>
           </div>
         </form>
       </div>
     </div>
 
+    <!-- 彈跳視窗 -->
+    <div class="alert-wrapper">
+      <div class="alert-container">
+        <p class="alert-title">Remind</p>
+        <p class="alert-word">電子郵件已註冊，或尚未確實填寫。</p>
+        <div id="alert-btn">OK</div>
+      </div>
+    </div>
+
     <!-- aside -->
-    <aside
+    <!-- <aside
       id="my-aside"
       style="animation: 0.9s ease 0s 1 alternate none running asiderunning"
     >
       <img id="my-aside-img" src="../assets/images/FE_test_go.png" />
-    </aside>
+    </aside> -->
 
     <!-- 照片放大區塊 -->
     <div class="enlarge-wrapper"></div>
 
-    <script src="../assets/js/lib.js"></script>
+    <!-- 在 HTML 文件中直接引入 Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js">
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+    
+    <script src="../assets/js/settings.js"></script>
     <script src="../assets/js/common.js"></script>
     <script type="module" src="../assets/js/content.js"></script>
   </body>

@@ -27,11 +27,9 @@ main {
     padding: 50px 0px;
 
     .contact-two-container {
-      // outline: 1px solid tomato;
       width: 90%;
       margin: 0 auto;
       display: flex;
-      // align-items: center;
       justify-content: center;
 
       @include maxPc {

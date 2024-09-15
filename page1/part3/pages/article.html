@@ -39,9 +39,8 @@
       <div class="white-background">
         <p>SEARCH</p>
         <form action="" class="search-part">
-          <input type="search" />
-          <img src="../assets/images/microphone.svg" alt="microphone" />
-          <img src="../assets/images/FE_search_green.png" alt="searchbar" />
+          <input  id="search-input" type="search" />
+          <img id="searchClcik" src="../assets/images/FE_search_green.png" alt="searchbar" />
         </form>
       </div>
       <div class="black-ground"></div>
@@ -126,6 +125,7 @@
       </div>
     </footer>
 
+
     <!-- 登入區塊 -->
     <div class="login-wrapper">
       <div class="login-container">
@@ -134,30 +134,53 @@
         </div>
         <form>
           <div class="login-inputs">
-            <input type="text" placeholder="Email" />
-            <input type="text" placeholder="******" />
+            <input id="email" type="email" placeholder="Email" required>
+            <input id="password" type="password" placeholder="******" required>
           </div>
           <p class="forget-password">忘記密碼?</p>
           <div class="login-btns">
             <div class="btn-group">
-              <button class="login-btn">註冊</button>
-              <button class="login-btn">登入</button>
+              <button  type="button" id="signup" class="login-btn">
+                註冊
+              </button>
+              <button type="button" id="login" class="login-btn">
+                登入
+              </button>
             </div>
-            <button class="gmail-btn">Log In With Gmail</button>
+            <button type="button" id="gmail-btn">
+              Log In With Gmail
+            </button>
           </div>
         </form>
       </div>
     </div>
 
+    <!-- 彈跳視窗 -->
+    <div class="alert-wrapper">
+      <div class="alert-container">
+        <p class="alert-title">Remind</p>
+        <p class="alert-word">電子郵件已註冊，或尚未確實填寫。</p>
+        <div id="alert-btn">OK</div>
+      </div>
+    </div>
+
     <!-- aisde -->
-    <aside
+    <!-- <aside
       id="my-aside"
       style="animation: 0.9s ease 0s 1 alternate none running asiderunning"
     >
       <img id="my-aside-img" src="../assets/images/FE_test_go.png" />
-    </aside>
+    </aside> -->
 
-    <script src="../assets/js/lib.js"></script>
+   <!-- 在 HTML 文件中直接引入 Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
+    <script src="../assets/js/settings.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+    
+    <!-- 引入 icon -->
+    <script src="https://kit.fontawesome.com/25467b0b27.js" crossorigin="anonymous"></script>
     <script src="../assets/js/common.js"></script>
     <script type="module" src="../assets/js/article.js"></script>
   </body>
