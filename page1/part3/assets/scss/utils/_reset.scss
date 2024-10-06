@@ -1,5 +1,3 @@
-
-
 // 共同樣式
 * {
   box-sizing: border-box;
@@ -28,15 +26,19 @@ li {
 }
 
 .container {
- max-width: 85%;
- margin: 0 auto; 
+  max-width: 85%;
+  margin: 0 auto;
+
+  // 螢幕尺寸576px
+  @include minipad {
+    max-width: 100%;
+  }
 }
 
 a {
   text-decoration: none;
   cursor: pointer;
 }
-
 
 .m-auto {
   margin: 0 auto;
@@ -53,3 +55,4 @@ a {
 .d-none {
   display: none;
 }
+
