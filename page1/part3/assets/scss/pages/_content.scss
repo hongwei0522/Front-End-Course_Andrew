@@ -137,7 +137,7 @@
 }
 
 .enlarge-wrapper {
-  .enlargeBackground {
+  .enlarge-background {
     position: fixed;
     top: 0px;
     bottom: 0px;
@@ -166,7 +166,7 @@
         border-color: transparent $second-gray transparent transparent;
       }
 
-      .largr-img {
+      .large-img {
         width: 750px;
         height: 550px;
         margin: 0 15px;
@@ -190,7 +190,7 @@
       .enlarge-container {
         width: 550px;
 
-        .largr-img {
+        .large-img {
           width: 400px;
           height: 400px;
         }
@@ -233,7 +233,7 @@
       .enlarge-container {
         width: 445px;
 
-        .largr-img {
+        .large-img {
           width: 300px;
           height: 300px;
         }
@@ -281,7 +281,7 @@
       .enlarge-container {
         width: 375px;
 
-        .largr-img {
+        .large-img {
           width: 220px;
           height: 340px;
         }

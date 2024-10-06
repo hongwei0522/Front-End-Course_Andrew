@@ -70,6 +70,7 @@ main {
 
   // skill-three
   .skill-three-wrapper {
+    position: relative;
     .skill-container {
       width: 85%;
       margin: 0 auto;
@@ -201,7 +202,7 @@ main {
           }
         }
 
-        .emojiBox {
+        .emoji-box {
           position: absolute;
           width: 140px;
           height: 40px;
@@ -209,17 +210,17 @@ main {
           left: 85px;
           cursor: pointer;
 
-          .emojiImg {
+          .emoji-img {
             width: 100%;
             height: 100%;
           }
         }
+
+        #showDetail {
+          transition: all 0.3s ease-in-out;
+        }
       }
     }
-  }
-
-  #showDetail {
-    transition: all 0.3s ease-in-out;
   }
 }
 
@@ -254,7 +255,7 @@ main {
       display: flex;
       justify-content: space-evenly;
 
-      .emojiBox {
+      .emoji-img-box {
         width: 50px;
         height: 50px;
         cursor: pointer;
@@ -299,6 +300,7 @@ main {
     position: relative;
     width: 350px;
     height: 450px;
+    border-radius: 4px;
     background-color: $primary-blue;
 
     .container-bg {
@@ -380,7 +382,7 @@ main {
     margin: 0 auto;
     width: 300px;
 
-    #typing-text {
+    #typingText {
       font-size: 24px;
       color: #fff;
       line-height: 35px;

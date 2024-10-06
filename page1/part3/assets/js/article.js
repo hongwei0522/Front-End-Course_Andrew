@@ -39,11 +39,13 @@ let articles = dataArray.map((item) => {
   return {
     classId: item.creatTime,
     classType: item.classType,
-    teacWay: item.teachWay,
+    teachWay: item.teachWay,
     classCity: item.city,
     classImg: item.squareUrl,
     className: item.name,
     classDescription: item.preface,
+    fee: item.fee,
+    weekHour: item.weekHour,
   };
 });
 
@@ -55,7 +57,7 @@ const oneItem = document.querySelector("#oneOnOne");
 
 // 渲染模板
 function generateHtmlContent(filterFn) {
-  const cardContainer = document.querySelector(".card-container");
+  const cardContainer = document.querySelector("#cardContainer");
   let htmlContent = "";
 
   articles.forEach((article) => {
@@ -64,7 +66,7 @@ function generateHtmlContent(filterFn) {
       <li class="card">
           <div class="favorite-icon" data-id="${article.classId}"></div>
           <a href="./content.html?id=${article.classId}" class="class-item">
-            <div class="city-part m-auto m-1">
+            <div class="city-part m-auto">
               <div class="location-box">
                 <img src="../assets/images/location_icon.png" alt="" class="loction-icon">
               </div>
@@ -117,7 +119,7 @@ function generateHtmlContent(filterFn) {
 
 // keyword 渲染模板
 function generateKeywordContent (filterArticles) {
-  const cardContainer = document.querySelector(".card-container");
+  const cardContainer = document.querySelector("#cardContainer");
   let htmlContent = "";
 
   if(filterArticles.length > 0) {
@@ -174,8 +176,9 @@ function generateKeywordContent (filterArticles) {
 function filterKeywordReander(keyword) {
   const filterArticles = articles.filter((article) => {
     return article.className.toLowerCase().includes(keyword) ||
+           article.classCity.includes(keyword) ||
            article.classType.includes(keyword) ||
-           article.teacWay.includes(keyword)
+           article.teachWay.includes(keyword)
   })
 
   generateKeywordContent (filterArticles)
@@ -228,7 +231,7 @@ function freeRangeClass() {
     "rgb(128, 128, 128)"
   );
 
-  generateHtmlContent((article) => article.teacWay === "放養制");
+  generateHtmlContent((article) => article.teachWay === "放養制");
 }
 
 // 點擊『 一對一制 』之函式
@@ -308,4 +311,5 @@ function toggleFavorite(id) {
   localStorage.setItem('favoriteList', JSON.stringify(favoriteList))
   displayFavoriteStar()
 }
+
 
