@@ -29,13 +29,13 @@
           <p id="loginClick" class="nav-item">登入</p>
         </div>
         <div class="search-part">
-          <img id="Search" src="../assets/images/FE_search_green.png" />
+          <img id="Search" src="../assets/images/FE_search_green.png" alt="搜尋" />
         </div>
       </nav>
     </header>
 
     <!-- search- section -->
-    <div id="search-section" class="search-section">
+    <div id="searchSection" class="search-section">
       <div class="white-background">
         <p>SEARCH</p>
         <form action="" class="search-part">
@@ -121,8 +121,8 @@
             </div>
 
             <!-- emojiImg -->
-            <div id="emojiP" class="emojiBox">
-              <img class="emojiImg" src="../assets/images/emoji1.svg" alt="" />
+            <div id="emojiBox" class="emoji-box">
+              <img id="emojiImg" class="emoji-img" src="../assets/images/emoji1.svg" alt="笑臉1" />
             </div>
 
             <!-- deatail -->
@@ -133,18 +133,18 @@
     </main>
 
     <!-- All Emoji -->
-    <div id="emoji-part" class="all-emoji-wrapper">
+    <div id="emojiPart" class="all-emoji-wrapper">
       <div class="emoji-conatainer">
         <div class="emoji-title">請選擇 Emoji</div>
         <div class="choose-emoji">
-          <div class="emojiBox">
-            <img class="emoji-one" src="../assets/images/emoji1.svg" alt="" />
+          <div class="emoji-img-box">
+            <img id="emojiOne" class="emoji-one" src="../assets/images/emoji1.svg" alt="笑臉1" />
           </div>
-          <div class="emojiBox">
-            <img class="emoji-two" src="../assets/images/emoji2.svg" alt="" />
+          <div class="emoji-img-box">
+            <img id="emojiTwo" class="emoji-two" src="../assets/images/emoji2.svg" alt="笑臉2" />
           </div>
-          <div class="emojiBox">
-            <img class="emoji-three" src="../assets/images/emoji3.svg" alt="" />
+          <div class="emoji-img-box">
+            <img id="emojiThree" class="emoji-three" src="../assets/images/emoji3.svg" alt="笑臉3" />
           </div>
         </div>
       </div>
@@ -153,30 +153,30 @@
     <!-- 問答題 -->
     <div id="game" class="game-wrapper">
       <div class="game-container">
-        <img class="container-bg" src="../assets/images/game-bg.jpg" alt="" />
-        <div class="game-word">
-          <div class="game-title"></div>
-          <div id="game-one" class="game-text"></div>
-          <div id="game-two" class="game-text"></div>
-          <div id="game-three" class="game-text"></div>
-          <div class="right-arrow"></div>
+        <img class="container-bg" src="../assets/images/game-bg.jpg" alt="問答題背景" />
+        <div id="gameWord" class="game-word">
+          <div id="gameTitle" class="game-title"></div>
+          <div id="gameOne" class="game-text"></div>
+          <div id="gameTwo" class="game-text"></div>
+          <div id="gameThree" class="game-text"></div>
+          <div id="rightArrow" class="right-arrow"></div>
         </div>
       </div>
     </div>
 
     <!-- 打字頁面 -->
-    <div class="typing-wrapper">
+    <div id="typingWrapper" class="typing-wrapper">
       <div class="typing-container">
-        <p id="typing-text"></p>
+        <p id="typingText"></p>
       </div>
     </div>
 
     <!-- 動畫區塊 -->
     <div id="top" class="top">
       <div class="top-div">
-        <a href="#"
-          ><img class="top-icon" src="../assets/images/FE_TOP.png"
-        /></a>
+        <a href="#">
+          <img class="top-icon" src="../assets/images/FE_TOP.png"  alt="動畫logo" />
+        </a>
       </div>
     </div>
     <div id="loadingDrawing" class="loading-drawing"></div>
@@ -195,7 +195,7 @@
             <input id="email" type="email" placeholder="Email" required>
             <input id="password" type="password" placeholder="******" required>
           </div>
-          <p class="forget-password">忘記密碼?</p>
+          <p class="forget-password" id="forgetPassword">忘記密碼?</p>
           <div class="login-btns">
             <div class="btn-group">
               <button  type="button" id="signup" class="login-btn">
@@ -223,12 +223,16 @@
     </div>
 
     <!-- aisde -->
-    <!-- <aside
+    <aside
       id="my-aside"
       style="animation: 0.9s ease 0s 1 alternate none running asiderunning"
     >
-      <img id="my-aside-img" src="../assets/images/FE_test_go.png" />
-    </aside> -->
+      <img id="my-aside-img" src="../assets/images/FE_test_go.png" alt="測驗功能" />
+    </aside>
+
+    <!-- Test Go -->
+    <div class="testgo-wrapper">
+    </div>
 
     <!-- footer -->
     <footer>
@@ -240,10 +244,11 @@
           <img
             class="footer-icon"
             src="../assets/images/new-facebook-blue.svg"
+            alt="facebook-icon"
           />
         </a>
         <a href="https://line.me/ti/p/foaAfu3hPF">
-          <img class="footer-icon" src="../assets/images/FE_line.png" />
+          <img class="footer-icon" src="../assets/images/FE_line.png" alt="line-icon" />
         </a>
       </div>
     </footer>
@@ -255,7 +260,7 @@
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
     <script src="../assets/js/settings.js"></script>
-    <script src="../assets/js/common.js"></script>
+    <script type="module" src="../assets/js/common.js"></script>
     <script src="../assets/js/skill.js"></script>
   </body>
 </html>

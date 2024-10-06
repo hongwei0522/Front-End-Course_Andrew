@@ -1,25 +1,26 @@
 
 
 // 宣告 button 節點
-const profileBtn = dom.get("#profileP");
-const favoriteBtn = dom.get("#favoriteP");
-const userWrapper = dom.get(".user-wrapper");
-const userInfo = dom.get(".user-container");
-const favoriteInfo = dom.get(".favorite-container");
+const profileBtn = document.querySelector("#profileBtn");
+const favoriteBtn = document.querySelector("#favoriteBtn");
+const userWrapper = document.querySelector("#userWrapper");
+const userInfo = document.querySelector("#userContainer");
+const favoriteInfo = document.querySelector("#favoriteContainer");
 
 
-const prfileImg = dom.get("#profile-img");
-const prfileName = dom.get("#profile-name");
-const prfilePhone = dom.get("#profile-phone");
-const prfileEmail = dom.get("#profile-email");
+const prfileImg = document.querySelector("#profileImg");
+const prfileName = document.querySelector("#profileName");
+const prfilePhone = document.querySelector("#profilePhone");
+const prfileEmail = document.querySelector("#profileEmail");
 
 
 const defaultImg =
   "https://static.vecteezy.com/system/resources/previews/018/765/138/non_2x/user-profile-icon-in-flat-style-member-avatar-illustration-on-isolated-background-human-permission-sign-business-concept-vector.jpg";
 
-let memberRef = database.ref("/member");
+let memberRef = firebase.database().ref("/member");
 let data;
 let profileData;
+let userState
 
 firebase.auth().onAuthStateChanged(function (user) {
   userState = user;
@@ -33,10 +34,10 @@ firebase.auth().onAuthStateChanged(function (user) {
       .equalTo(userState.email)
       .once("value")
       .then((snapshot) => {
-        let prfileImg = dom.get("#profile-img");
-        let prfileName = dom.get("#profile-name");
-        let prfilePhone = dom.get("#profile-phone");
-        let prfileEmail = dom.get("#profile-email");
+        let prfileImg = document.querySelector("#profileImg");
+        let prfileName = document.querySelector("#profileName");
+        let prfilePhone = document.querySelector("#profilePhone");
+        let prfileEmail = document.querySelector("#profileEmail");
 
         data = snapshot.val();
         const postKey = Object.keys(data)[0]; // 獲取第一個 key
@@ -72,7 +73,17 @@ firebase.auth().onAuthStateChanged(function (user) {
   }
 });
 
-const loginOutP = document.querySelector("#login-out");
+const okBtn = document.querySelector("#alert-btn")
+const alertBox = document.querySelector(".alert-wrapper");
+const alertText = document.querySelector(".alert-word");
+
+// alertBox Open
+function alertBoxOpen(msg) {
+  alertBox.style.display = "flex";
+  alertText.textContent = msg;
+}
+
+const loginOutBtn = document.querySelector("#loginOutBtn");
 
 // alertBox close
 function loginoutAlertBoxClose() {
@@ -99,7 +110,7 @@ function loginoutAlertBoxClose() {
 }
 
 // 觸及登出事件
-loginOutP.addEventListener("click", () => {
+loginOutBtn.addEventListener("click", () => {
   alertBoxOpen("確定是否登出");
   loginoutAlertBoxClose();
 });
@@ -138,10 +149,10 @@ function getUserData() {
 
     if (user) {
 
-      let prfileImg = dom.get("#profile-img");
-      let prfileName = dom.get("#profile-name");
-      let prfilePhone = dom.get("#profile-phone");
-      let prfileEmail = dom.get("#profile-email");
+      let prfileImg = document.querySelector("#profileImg");
+        let prfileName = document.querySelector("#profileName");
+        let prfilePhone = document.querySelector("#profilePhone");
+        let prfileEmail = document.querySelector("#profileEmail");
 
       const displayName = profileData.name || "";
       const email = profileData.mail || "";
@@ -156,10 +167,10 @@ function getUserData() {
   });
 }
 
-const confirmBtn = dom.get("#confirm-btn");
-const cancelBtn = dom.get("#cancel-btn");
-const deviceBtn = dom.get("#device-btn");
-const deviceGroup = dom.get(".device-group");
+const confirmBtn = document.querySelector("#confirmBtn");
+const cancelBtn = document.querySelector("#cancelBtn");
+const deviceBtn = document.querySelector("#deviceBtn");
+const deviceGroup = document.querySelector("#deviceGroup");
 
 
 // 點擊修改按鈕後

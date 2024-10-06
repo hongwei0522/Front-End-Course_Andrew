@@ -281,10 +281,11 @@ div.loading-animation {
 /* my-aside 動畫 */
 @keyframes asiderunning {
   0% {
-    bottom: 90%;
+    transform: translateY(20px);
   }
+ 
   100% {
-    bottom: 20%;
+    transform: translateY(60px);
   }
 }
 

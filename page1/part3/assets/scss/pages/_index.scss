@@ -83,7 +83,6 @@ header {
   bottom: 0;
   left: 0;
   right: 0;
-
   width: 100vw;
   height: 100vh;
   z-index: 3;
@@ -179,6 +178,9 @@ header {
     .title-one {
       font-size: 40px;
       font-weight: bold;
+      &:hover {
+        rotate: -5deg;
+      }
 
       // 螢幕尺寸390
       @include mobile {
@@ -221,10 +223,11 @@ header {
   width: 78px;
   height: 69px;
   cursor: pointer;
-  transition: bottom 4s;
+  transition: all 4s;
+  animation: 0.9s ease 0s 1 alternate none running asiderunning;
 
   &:hover {
-    bottom: 20px;
+    bottom: 30%;
   }
 
   #my-aside-img {
@@ -274,7 +277,7 @@ main {
       letter-spacing: 3px;
     }
 
-    #test-go {
+    #home-testgo {
       width: 128px;
       padding: 7px 23px;
       margin-top: 30px;
