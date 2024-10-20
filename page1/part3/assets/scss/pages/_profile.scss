@@ -23,13 +23,11 @@ main {
   }
 
   .profile-two-wrapper {
-    padding: 60px 40px;
+    padding: 60px 25px;
 
     .profile-two-container {
       max-width: 1940px;
       width: 100%;
-      // width: 85%;
-      // height: 400px;
       margin: 0 auto;
       display: flex;
       justify-content: center;
@@ -52,6 +50,8 @@ main {
           padding-top: 40px;
           flex-direction: row;
           justify-content: space-between;
+          flex: 1;
+          order: 1;
         }
 
         // 576px
@@ -160,7 +160,7 @@ main {
 
                 // 576px
                 @include minipad {
-                  width: 250px;
+                  width: 255px;
                   margin-left: 0px;
                 }
               }
@@ -217,7 +217,6 @@ main {
               cursor: pointer;
             }
           }
-          // outline: 1px solid tomato;
         }
       }
     }

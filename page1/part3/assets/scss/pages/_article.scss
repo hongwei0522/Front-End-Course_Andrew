@@ -92,15 +92,12 @@ main {
           color: $primary-blue;
           text-align: end;
           font-size: 18px;
-          // width: 20px;
-          // height: 20px;
           padding-right: 15px;
           cursor: pointer;
         }
 
         .class-item {
           display: block;
-          width: 90%;
           margin: 0 auto;
           color: #3f3a3a;
           .save-part {
@@ -114,11 +111,11 @@ main {
           }
 
           .city-part {
-            width: 30%;
+            width: 55%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 20px;
+            padding: 15px 0px;
 
             .location-box {
               width: 17.14px;
@@ -166,6 +163,8 @@ main {
 
           .class-decription {
             color: #3f3a3a;
+            width: 90%;
+            margin: 0 auto;
 
             &:hover {
               opacity: 0.7;
@@ -203,6 +202,222 @@ main {
       .search-error {
         font-size: 30px;
         letter-spacing: 2px;
+      }
+    }
+  }
+}
+
+// testgo
+.testgo-wrapper {
+  z-index: 5;
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(192, 192, 192, 0.3);
+  z-index: 5;
+
+  .testgo-container {
+    position: relative;
+    width: 350px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+    background-color: $primary-blue;
+
+    @include mobile {
+      width: 335px;
+    }
+
+    .container-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.1;
+    }
+
+    .testgo-word {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .testgo-title-one {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 30px;
+        letter-spacing: 1px;
+        padding-top: 50px;
+      }
+
+      .testgo-title-two {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 30px;
+        letter-spacing: 1px;
+        padding: 20px 40px 0px 40px;
+      }
+
+      .testgo-text {
+        position: relative;
+        padding: 20px 50px 0px 50px;
+        margin-bottom: 10px;
+        color: white;
+        font-size: 16px;
+        line-height: 30px;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        z-index: 2;
+      }
+
+      .testgo-level-number {
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        margin: 0px 12px 20px 12px;
+        letter-spacing: 6px;
+      }
+
+      .testgo-start-btn {
+        font-size: 20px;
+        font-weight: 550;
+        color: $primary-blue;
+        text-align: center;
+        line-height: 40px;
+        padding: 0px 35px;
+        margin-top: 40px;
+        letter-spacing: 3px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: white;
+
+        &:hover {
+          color: white;
+          background-color: rgba(255, 255, 255, 0.5);
+        }
+      }
+
+      .testgo-go-btn {
+        width: 180px;
+        font-size: 18px;
+        font-weight: 550;
+        color: $primary-blue;
+        text-align: center;
+        line-height: 40px;
+        padding: 0px 23px;
+        margin: 6px;
+        letter-spacing: 3px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: white;
+
+        &:hover {
+          color: white;
+          background-color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+
+    // 進度條
+    .progress-container {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .testgo-title-two {
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 30px;
+        letter-spacing: 1px;
+        padding: 20px 50px 0px 50px;
+        margin-bottom: 0px;
+      }
+
+      .circle-white-border {
+        position: absolute;
+        top: 42px;
+        left: 36px;
+        width: 74%;
+        height: 74%;
+        border-radius: 50%;
+        background-color: white;
+      }
+
+      .progress-circle-group {
+        width: 300px; /* 調大容器寬度 */
+        height: 300px; /* 調大容器高度 */
+        position: relative;
+
+        .circle-svg {
+          transform: rotate(-90deg);
+          width: 100%;
+          height: 245px;
+          position: relative;
+
+          circle {
+            fill: none;
+            stroke: #ddd;
+            stroke-width: 15; /* 調整線條寬度 */
+          }
+
+          #progress-circle-one {
+            fill: white;
+            position: relative;
+          }
+
+          #progress-circle-two {
+            stroke: $second-blue;
+            stroke-linecap: round;
+            stroke-dasharray: 628; /* 2πr, r=100, 新的圓周長 */
+            stroke-dashoffset: 628; /* Start with full offset */
+            transition: stroke-dashoffset 0.3s ease;
+          }
+        }
+      }
+
+      .progress-number {
+        font-size: 30px; /* 調大百分比字體大小 */
+        font-weight: bold;
+        color: $second-blue;
+        position: absolute;
+        top: 49%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+      }
+
+      .test-result {
+        font-size: 18px;
+        color: $primary-blue;
+        padding: 7px 40px;
+        line-height: 30px;
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: white;
+        letter-spacing: 2px;
+        text-decoration: none;
+
+        &:hover {
+          color: white;
+          background-color: rgba(255, 255, 255, 0.5);
+        }
       }
     }
   }

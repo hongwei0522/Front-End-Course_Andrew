@@ -1,4 +1,24 @@
 // 共同檔案的 JS
+import data from "../data/article.json" with { type: "json" };
+
+
+let dataArray = Object.values(data.article);
+let articles = dataArray.map((item) => {
+  return {
+    classId: item.creatTime,
+    classType: item.classType,
+    teachWay: item.teachWay,
+    classCity: item.city,
+    classImg: item.squareUrl,
+    className: item.name,
+    classDescription: item.preface,
+    fee: item.fee,
+    weekHour: item.weekHour,
+  };
+});
+
+
+
 // general method
 let dom = {
   evts: {},
@@ -10,6 +30,8 @@ let dom = {
   skillTree: {},
   collect: {},
 };
+
+
 
 // core operations
 dom.get = function (selector) {
@@ -24,6 +46,7 @@ const passwordInput = dom.get("#password");
 const signupBtn = dom.get("#signup");
 const loginBtn = dom.get("#login");
 const gamilBtn = dom.get("#gmail-btn");
+const forgetPasswordBtn = dom.get("#forgetPassword");
 const okBtn = dom.get("#alert-btn");
 const alertBox = dom.get(".alert-wrapper");
 const alertText = dom.get(".alert-word");
@@ -214,11 +237,40 @@ gamilBtn.addEventListener("click", (e) => {
     });
 });
 
+// 忘記密碼
+function forgetPassword() {
+  const email = emailInput.value.trim();
+  const auth = firebase.auth();
+
+  if(!email) {
+    alertBoxOpen("請輸入電子郵件後，再次點選「忘記密碼");
+    alertBoxClose();
+
+  } else {
+    auth.sendPasswordResetEmail(email)
+     .then(() => {
+      alertBoxOpen("請至信箱收件重置密碼");
+      alertBoxClose();
+     })
+     .catch((error) => {
+       alertBoxOpen("請輸入正確信箱");
+       alertBoxClose();
+       console.log("忘記密碼 error", error.message);
+     })
+  }
+}
+
+forgetPasswordBtn.addEventListener("click", forgetPassword);
+
 
 // Search
 // Search display none or block function
 let searchOpen = false;
-function searchBlock() {
+const searchBar = dom.get("#Search");
+const searchBlackGround = dom.get(".black-ground");
+
+function toggleSearchBlock() {
+
   // searbar 未開啟狀態
   if (!searchOpen) {
     searchOpen = true;
@@ -234,11 +286,15 @@ function searchBlock() {
 }
 
 // Click search Diaplay none or block
-dom.get("#Search").addEventListener("click", () => {
-  searchBlock();
+searchBar.addEventListener("click", () => {
+  toggleSearchBlock();
 });
 
-const searchSection = dom.get(".search-section");
+searchBlackGround.addEventListener("click", () =>{
+  toggleSearchBlock();
+})
+
+const searchSection = dom.get("#searchSection");
 const searchInput = dom.get("#search-input");
 const searchClick = dom.get("#searchClcik");
 
@@ -259,7 +315,6 @@ searchClick.addEventListener("click", () => {
 
 //search input enter 事件
 searchInput.addEventListener("keydown", (e) => {
-  // e.preventDefault();
   const searchInputValue = searchInput.value.trim();
 
   if (e.key === 'Enter') {
@@ -277,23 +332,398 @@ searchInput.addEventListener("keydown", (e) => {
   }
 });
 
+// Test Go
+// let testGoOpen = false
+const aside = document.querySelector("#my-aside")
+const testGoWrapper = document.querySelector(".testgo-wrapper")
+const testGoContainer = document.querySelector(".testgo-container")
+const testGoWords = document.querySelector(".testgo-word")
+
+function stopPropagationEvent(newElement) {
+  newElement.addEventListener("click", (e) =>{
+    e.stopPropagation()
+  })
+}
+
+
+function createStopPropagationElement(label, domClassName, domText, domParent) {
+  const parent = document.querySelector(domParent)
+  const newElement = document.createElement(label)
+  newElement.className = domClassName
+  newElement.textContent = domText
+  parent.appendChild(newElement)
+  stopPropagationEvent(newElement)
+}
+
+function testGoImgBackGround(label, domClassName) {
+  const testGoContainer = document.querySelector(".testgo-container")
+  const newElement = document.createElement(label)
+  newElement.className = domClassName
+  newElement.src = '../assets/images/game-bg.jpg'
+  newElement.alt = '測驗背景'
+  testGoContainer.appendChild(newElement)
+  stopPropagationEvent(newElement)
+}
+
+function createTestGoElement(label, domClassName, domText, domParent, func) {
+  const parent = document.querySelector(domParent)
+  const newElement = document.createElement(label)
+  newElement.className = domClassName
+  newElement.textContent = domText
+  parent.appendChild(newElement)
+  newElement.addEventListener("click", (e) => {
+    e.stopPropagation()
+
+    if(func) {
+      func(e)
+    }
+  })
+}
+
+function testGoTitle(domClassName, domText) {
+  createTestGoElement('p', domClassName, domText, '.testgo-word', '')
+}
+
+function textGotext(domClassName, domText) {
+   createTestGoElement('p', domClassName, domText, '.testgo-word', '')
+}
+
+function testGoBtn( domText, func) {
+  createTestGoElement('p', 'testgo-go-btn', domText, '.testgo-word', func)
+}
+
+
+function testGoLevelOneTrigger(e) {
+  const testGoWords = document.querySelector(".testgo-word")
+  testGoWords.innerHTML = ''
+  testGoTitle('testgo-title-two', '選擇在哪座城市學習?')
+  textGotext('testgo-level-number', '1/5')
+  testGoBtn('台北', testGoLevelTwoTrigger)
+  testGoBtn('台中', testGoLevelTwoTrigger)
+  testGoBtn('高雄', testGoLevelTwoTrigger)
+  testGoBtn('各地', testGoLevelTwoTrigger)
+  testGoBtn('無限制', testGoLevelTwoTrigger)
+  
+}
+
+let collectAllSelect = []
+function testGoLevelTwoTrigger(e) {
+  const testGoWords = document.querySelector(".testgo-word")
+  const eText = e.target.textContent
+  testGoWords.innerHTML = ''
+  testGoTitle('testgo-title-two', '每月能撥出多少費用學習?')
+  textGotext('testgo-level-number', '2/5')
+  testGoBtn('3000元以下', testGoLevelThreeTrigger)
+  testGoBtn('6000元以下', testGoLevelThreeTrigger)
+  testGoBtn('10000元以下', testGoLevelThreeTrigger)
+  testGoBtn('10001元以上', testGoLevelThreeTrigger)
+  testGoBtn('無限制', testGoLevelThreeTrigger)
+  collectAllSelect.push(eText)
+  
+}
+
+function testGoLevelThreeTrigger(e) {
+  const testGoWords = document.querySelector(".testgo-word")
+  const eText = e.target.textContent
+  testGoWords.innerHTML = ''
+  testGoTitle('testgo-title-two', '每週能撥出多少時間學習?')
+  textGotext('testgo-level-number', '3/5')
+  testGoBtn('16小時以下', testGoLevelFourTrigger)
+  testGoBtn('30小時以下', testGoLevelFourTrigger)
+  testGoBtn('45小時以下', testGoLevelFourTrigger)
+  testGoBtn('46小時以上', testGoLevelFourTrigger)
+  testGoBtn('無限制', testGoLevelFourTrigger)
+  collectAllSelect.push(eText)
+  console.log("collectAllSelect 2", collectAllSelect)
+  console.log("Number collectAllSelect 2", parseInt(collectAllSelect[1]))
+
+}
+
+function testGoLevelFourTrigger(e) {
+  const testGoWords = document.querySelector(".testgo-word")
+  const eText = e.target.textContent
+  testGoWords.innerHTML = ''
+  testGoTitle('testgo-title-two', '對班制的需求是?')
+  textGotext('testgo-level-number', '4/5')
+  testGoBtn('大班制', testGoLevelFiveTrigger)
+  testGoBtn('小班制', testGoLevelFiveTrigger)
+  testGoBtn('一對一', testGoLevelFiveTrigger)
+  testGoBtn('無限制', testGoLevelFiveTrigger)
+  collectAllSelect.push(eText)
+}
+
+function testGoLevelFiveTrigger(e) {
+  const testGoWords = document.querySelector(".testgo-word")
+  const eText = e.target.textContent
+  testGoWords.innerHTML = ''
+  testGoTitle('testgo-title-two', '喜歡什麼樣的教學方式?')
+  textGotext('testgo-level-number', '5/5')
+  testGoBtn('放養制', testGoLevelSixTrigger)
+  testGoBtn('手把手教制', testGoLevelSixTrigger)
+  testGoBtn('無限制', testGoLevelSixTrigger)
+  collectAllSelect.push(eText)
+}
+
+function testGoLevelSixTrigger(e) {
+  const eText = e.target.textContent
+
+  testGoLevelSevenContent()
+  collectAllSelect.push(eText)
+  filterAllSelect() 
+}
+
+function testGoLevelSevenContent() {
+  const testGoWords = document.querySelector(".testgo-word")
+  const testGoContainer = document.querySelector(".testgo-container")
+
+  testGoContainer.removeChild(testGoWords)
+  testGoContainer.innerHTML = `
+    <img
+      class="container-bg"
+      src="../assets/images/game-bg.jpg"
+      alt="Testgo背景"
+    />
+    <div class="progress-container">
+      <p class="testgo-title-two">你有多適合下列學校呢？</p>
+      <div class="progress-circle-group">
+        <svg class="circle-svg">
+          <circle cx="120" cy="120" r="100" id="progress-circle-one"></circle>
+          <circle cx="120" cy="120" r="100" id="progress-circle-two"></circle>
+        </svg>
+      </div>
+      <div class="progress-number" id="progress-number">0%</div>
+      <a id="testResult" class="test-result" href="#">六角學院</a>
+    </div>
+  `
+}
+
+let selectTotal = []
+function filterAllSelect() {
+  // 篩選 city 
+  if(collectAllSelect[0] !== '無限制') {
+    articles.forEach(article => {
+      if ( article.classCity === collectAllSelect[0] ) {
+        selectTotal.push(article.className)
+      }
+    })
+  }
+
+  // 篩選 fee
+  // 3000元以下
+    if(parseInt(collectAllSelect[1])<= 3000){
+      articles.forEach(article => {
+        if(article.fee === '1800' ||  article.fee === '3000') {
+          selectTotal.push(article.className)
+        }
+      })
+    
+  // 6000元或 10000元以下  
+    } else if (parseInt(collectAllSelect[1])<= 6000 ||parseInt(collectAllSelect[1])<= 10000 ) {
+      articles.forEach(article => {
+        if(article.fee === '1800' ||  article.fee === '3000' || article.fee === '5000') {
+          selectTotal.push(article.className)
+        }
+      })
+    }
+
+  //篩選 week hour
+    // 16小時以下
+    if(parseInt(collectAllSelect[2]) <= 16) {
+      articles.forEach(article => {
+        if(article.weekHour === '16') {
+          selectTotal.push(article.className)
+        }
+      })
+    // 30小時以下
+    } else if(parseInt(collectAllSelect[2]) <= 30) {
+      articles.forEach(article => {
+        if(article.weekHour === '16' || article.weekHour === '18' || article.weekHour === '20') {
+          selectTotal.push(article.className)
+        }
+      })
+    
+    // 45小時以下
+    } else if(parseInt(collectAllSelect[2]) <= 45) {
+      articles.forEach(article => {
+        if(article.weekHour === '16' || 
+           article.weekHour === '18' || 
+           article.weekHour === '20' || 
+           article.weekHour === '32'
+          ) {
+          selectTotal.push(article.className)
+        }
+      })
+    }
+
+  //篩選 class type
+    if(collectAllSelect[3] !== '無限制') {
+      articles.forEach(article => {
+        if(article.classType === collectAllSelect[3]) {
+          selectTotal.push(article.className)
+        }
+      })
+    }
+
+  //篩選 teacWay
+    if(collectAllSelect[4] !== '無限制') {
+      articles.forEach(article => {
+        if(article.teachWay === collectAllSelect[4]) {
+          selectTotal.push(article.className)
+        }
+      })
+    }
+
+  startRandomChange()
+}
+
+
+// let finalValue = 85;
+// let finalResult = 'AppWorks School'
+let currentProgress = 0;
+const circumference = 628; // 更新圓周長 (2πr, r=100)
+let resultTexts = articles.map(article => {
+  return article.className
+})
+
+
+function startRandomChange() {
+    let modeMap = {};
+    let finalValue = '0'
+    let finalResult = selectTotal[0];
+    let maxCount = 1;
+
+    for(let i = 0; i < selectTotal.length; i++){
+        let el = selectTotal[i];
+
+        if(modeMap[el] == null){
+            modeMap[el] = 1;
+        }else{
+            modeMap[el]++;  
+        }
+        if(modeMap[el] > maxCount){
+            finalResult = el;
+            maxCount = modeMap[el];
+        }
+    }
+
+     if(maxCount == 5){
+        finalValue = '100';
+
+    }else if(maxCount == 4){
+        finalValue = '80';
+
+    }else if(maxCount == 3){
+        finalValue = '60';
+
+    }else if(maxCount == 2){
+        finalValue = '40'
+
+    }else if(maxCount == 1){
+        finalValue = '20';
+
+    }else if(maxCount == 0){
+        finalValue = '5';
+    }
+
+
+
+  const result = document.querySelector('.test-result')
+
+  let randomChangeInterval = setInterval(() => {
+    let randomIncrement = Math.floor(Math.random() * 5 + 1);
+    let randomText = Math.floor(Math.random() * resultTexts.length )
+
+    currentProgress += randomIncrement;
+
+    if (currentProgress > finalValue) currentProgress = finalValue;
+
+    updateProgress(currentProgress);
+    result.textContent = resultTexts[randomText]
+
+    if (currentProgress === finalValue) {
+      clearInterval(randomChangeInterval);
+      result.textContent = finalResult
+      currentProgress = 0
+      testResultToLink(finalResult)
+    }
+  }, 100);
+
+  // clear
+  collectAllSelect = []
+  selectTotal = []
+
+}
+
+// testResult a 連結
+function testResultToLink(finalResult) {
+  const testResult = document.querySelector("#testResult")
+
+  articles.forEach(article => {
+    if(article.className === finalResult) {
+      testResult.setAttribute("href", `./content.html?id=${article.classId}`)
+    }
+  })
+}
+
+function updateProgress(percentage) {
+  const progressNumberElement = document.getElementById("progress-number");
+  const progressCircleElement = document.getElementById("progress-circle-two");
+
+  progressNumberElement.textContent = `${percentage}%`;
+
+  const offset = circumference - (percentage / 100) * circumference;
+  progressCircleElement.style.strokeDashoffset = offset;
+}
+
+function testGoContentStart() {
+  testGoWrapper.style.display = 'flex'
+  createStopPropagationElement('div', 'testgo-container', '', '.testgo-wrapper')
+  testGoImgBackGround('img', 'container-bg')
+  createStopPropagationElement('div', 'testgo-word', '', '.testgo-container')
+  testGoTitle('testgo-title-one', '測驗說明')
+  textGotext('testgo-text', '點選「開始測驗」後，系統將根據你的回答，找出最適合你的學習環境，並顯示有多少百分比的合適度。')
+  createTestGoElement('p', 'testgo-start-btn', '開始測驗', '.testgo-word', testGoLevelOneTrigger)
+}
+
+const HomeTestGo = document.querySelector("#home-testgo")
+if(HomeTestGo) {
+  HomeTestGo.addEventListener("click", testGoContentStart)
+}
+
+aside.addEventListener("click", testGoContentStart)
+
+testGoWrapper.addEventListener("click", () =>{
+  testGoWrapper.style.display = 'none'
+  testGoWrapper.innerHTML = ''
+  collectAllSelect = []
+  selectTotal = []
+})
+
+
 // back to top
-dom.get("#top").addEventListener("click", function () {
+const Top = document.querySelector("#top")
+Top.addEventListener("click", function () {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop;
 });
 
 // loading
 dom.loading = function () {
-  dom.get("#loadingAnimation").style.height = "0px";
-  dom.get("#loadingAnimation").style.opacity = "0.9";
-  dom.get("#loadingDrawing").style.height = "0px";
-  dom.get("#loadingDrawing").style.opacity = "0.9";
-  dom.get("#loadingImg").style.marginBottom = "-1000px";
-  dom.get("#header").animation = "headerGoUp 0.9s ease 0s 1 alternate";
-  dom.get("#my-aside").animation = "asiderunning 0.9s ease 0s 1 alternate";
+  const loadingAnimation = document.querySelector("#loadingAnimation")
+  const loadingDrawing = document.querySelector("#loadingDrawing")
+  const loadingImg = document.querySelector("#loadingImg")
+  const header = document.querySelector("#header")
+  const myAside = document.querySelector("#my-aside")
+
+  loadingAnimation.style.height = "0px";
+  loadingAnimation.style.opacity = "0.9";
+  loadingDrawing.style.height = "0px";
+  loadingDrawing.style.opacity = "0.9";
+  loadingImg.style.marginBottom = "-1000px";
+  header.animation = "headerGoUp 0.9s ease 0s 1 alternate";
+  myAside.animation = "asiderunning 0.9s ease 0s 1 alternate";
   setTimeout(function () {
-    dom.get("#loadingAnimation").style.display = "none";
+    loadingAnimation.style.display = "none";
   }, 600);
 };
 
